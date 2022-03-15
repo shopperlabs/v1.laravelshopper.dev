@@ -1,0 +1,54 @@
+title: Screencast
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: sidebar_title
+        field:
+          input_type: text
+          type: text
+          instructions: 'A shorter title, if necessary'
+          localizable: false
+          listable: hidden
+          display: 'Sidebar Title'
+      -
+        handle: video
+        field:
+          type: video
+          localizable: false
+          listable: hidden
+          display: Video
+      -
+        handle: length
+        field:
+          input_type: text
+          type: text
+          localizable: false
+          listable: hidden
+          display: Length
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required

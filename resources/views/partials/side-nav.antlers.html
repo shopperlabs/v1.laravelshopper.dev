@@ -1,0 +1,65 @@
+<nav id="side-nav" class="lg:text-sm lg:leading-6 relative">
+    <div class="sticky top-0 -ml-0.5">
+        <div class="h-10"></div>
+        <div class="flex items-center">
+            <form class="relative hidden bg-white md:flex items-center text-sm w-[240px] h-9 m-0 rounded-md shadow ring-1 ring-gray-900/10 relative top-[-2px] hover:ring-gray-300" action="/search-results">
+                <div id="docsearch" ref="docSearch"></div>
+            </form>
+        </div>
+        <div class="h-8"></div>
+    </div>
+
+    <div class="mb-10">
+        {{ nav:collection:sections include_home="true" }}
+        <a href="{{ url }}" class="group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-gray-700 hover:text-gray-900 {{ page:section === section ?= 'text-blue-800 hover:text-blue-800' }}">
+            {{ svg src=slug class="block w-6 h-6" title=title }}
+            <span class="ml-3">{{ title }}</span>
+        </a>
+        {{ /nav:collection:sections }}
+    </div>
+
+    <div class="block w-full z-0" :class="{'mobile-open': showNav}" x-show="showNav">
+        {{ if section }}
+            <div class="side-nav">
+                <div class="md:hidden">
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        {{ nav:collection:sections include_home="true" }}
+                        <a class="text-lg font-display p-2 font-medium border shadow-sm text-center hover:text-pink {{ page:section === section ?= 'bg-mint' }}" href="{{ url }}">{{ nav_title ?? title }}</a>
+                        {{ /nav:collection:sections }}
+                    </div>
+                    {{ svg src="zig-zag-lg" class="w-full my-4 mx-auto" }}
+                </div>
+                <ul>
+                    {{ nav :handle="section" }}
+                    <li class="mt-12 lg:mt-8">
+                        <h5 class="mb-8 lg:mb-3 font-semibold text-gray-700 uppercase tracking-wide text-sm lg:text-xs">
+                            <span>{{ title }}</span>
+                        </h5>
+                        <ul class="mt-0 space-y-6 lg:space-y-2 border-l border-gray-100">
+                            {{ if children }}
+                                {{ children scope="child" }}
+                                    <li class="{{ is_current || is_parent ?= 'active' }}" {{ if is_current || is_parent }}x-effect="open = '{{ parent:title }}'"{{ /if }}>
+                                        <a href="{{ url }}" class="block border-l pl-4 -ml-px border-transparent hover:border-gray-400 text-gray-700 hover:text-gray-900">
+                                            {{ nav_title ?? title }}
+                                        </a>
+                                    </li>
+                                {{ /children }}
+                            {{ /if }}
+
+                            {{ if section == "reference" }}
+                                {{ collection :from="slug" }}
+                                    <li class="{{ permalink === current_url ?= 'active' }}" {{ if permalink === current_url }}x-effect="open = '{{ collection:title }}'"{{ /if }}>
+                                        <a href="{{ url }}" class="block border-l pl-4 -ml-px border-transparent hover:border-gray-400 text-gray-700 hover:text-gray-900">
+                                            {{ nav_title ?? title }}
+                                        </a>
+                                    </li>
+                                {{ /collection }}
+                            {{ /if }}
+                        </ul>
+                    </li>
+                    {{ /nav }}
+                </ul>
+            </div>
+        {{ /if }}
+    </div>
+</nav>

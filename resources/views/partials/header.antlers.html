@@ -1,0 +1,8 @@
+<header class="markdown mb-8">
+    {{ partial:breadcrumbs }}
+    <div class="flex items-center">
+        <h1 class="{{ title | length > 36 ?= 'text-3xl'}}">{{ title | widont }}</h1>
+        {{ partial:pro-badge }}
+    </div>
+    {{ intro ?? overview | markdown }}
+</header>

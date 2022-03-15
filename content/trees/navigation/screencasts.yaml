@@ -1,0 +1,42 @@
+tree:
+  -
+    id: 16b9794b-6309-47d6-a544-1752a523fa30
+    title: 'Getting Started'
+    children:
+      -
+        id: d1b56b30-ae27-4a25-85b2-363e8ae4424a
+        entry: 401a9d31-29f4-4cde-aaed-4ef494dfc611
+      -
+        id: e7ab6f69-2cf3-4fd2-987b-01ba128c4d84
+        entry: 494663ef-8bf5-4d96-a2b5-de89cc627c1f
+      -
+        id: 89293721-878c-4d97-b02a-87786d8bf188
+        entry: dbd8a228-2111-4356-b093-2414f7443215
+      -
+        id: 9ec56b3f-ec0b-4918-a9e1-9ad677da06f8
+        entry: 31d4a021-83da-4349-b9ad-ffcfcf3b5724
+      -
+        id: 6e18ace6-e4df-4c7f-bf20-83257b6ad984
+        entry: a492f0e1-454e-42e6-a9af-cfb2c9a6adde
+  -
+    id: b9599000-371f-41d3-9fb4-9c707c4d8f39
+    title: 'Building a Store'
+    children:
+      -
+        id: 242b178d-4e84-47f9-821b-21aba7e04b0f
+        entry: a6a956fd-647d-4503-9a4a-3b24198e6e73
+      -
+        id: 89dbe9c6-e2e2-4539-95d3-9e3b11bfc1a2
+        entry: 6946623d-f9d3-40a8-93d1-00721bb3cc32
+      -
+        id: 707cef58-5a23-495f-b7b6-743f1c6e1097
+        entry: 9ea94cd6-9f21-42b8-9019-313ed172cb29
+      -
+        id: b4f506d3-6f38-4be4-86b7-c3f48a2c06ec
+        entry: e15f4700-1c45-460d-8215-4649fbe911f9
+      -
+        id: a1ece39b-5fe3-4df9-860b-2576f7d56128
+        entry: 50758908-d9be-428c-b626-e0a5a5de5d1b
+      -
+        id: 957d7a36-0b78-47a2-963b-803cd144c01a
+        entry: 7044e150-acc1-4a15-bf51-f957371d29ed

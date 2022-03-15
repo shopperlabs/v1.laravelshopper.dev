@@ -1,0 +1,27 @@
+name: 'Arthur Monney'
+super: true
+id: 3a60f79d-8381-4def-a970-5df62f0f5d56
+password_hash: $2y$10$1TkUYBCl7pxH0ZMIrPLLzuBDUMVFGvJ8qjEipP.3ohMPm4E7KCZna
+preferences:
+  collections:
+    docs:
+      columns:
+        - title
+        - slug
+        - template
+      per_page: 25
+    tags:
+      columns:
+        - title
+        - slug
+        - stage
+    knowledge-base:
+      columns:
+        - title
+        - slug
+        - categories
+      after_save: continue_editing
+    fieldtypes:
+      columns:
+        - title
+        - intro

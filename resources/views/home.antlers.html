@@ -1,0 +1,78 @@
+<header class="markdown">
+    <h1>Learn Shopper</h1>
+    <div class="max-w-2xl text-xl text-gray-500">{{ intro | widont }}</div>
+</header>
+
+<div class="bg-gradient-to-tr from-gray-50 to-blue-500 mt-8 md:mt-12 p-4 md:py-5 md:px-8 border border-gray-200 rounded-md">
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="flex-1">
+            <h2 class="font-display text-3xl font-semibold mb-2">Get Started</h2>
+            <p>There's more than one way to get started with Laravel Shopper.</p>
+            <div class="flex flex-wrap md:space-x-4 mt-6">
+                <a href="/installing" class="button button-white py-2.5 border border-gray-300 text-sm">Installation &rarr;</a>
+                <a href="/quick-start-guide" class="hidden md:block button button-blue">Quick Start Guide</a>
+            </div>
+        </div>
+        <div class="md:w-96 mt-4 md:m-0 md:pl-8">
+            <img src="/img/control-panel-screenshot.png" alt="The Shopper Control Panel" class="rounded-md">
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray-800 mt-6 py-5 px-8 text-white hidden md:flex items-center rounded-md">
+    <img src="/img/pizza-slice.svg" alt="A slice of pizza" class="mr-2">
+    <p class="text-center flex-1"><b>Shopper Framework</b> is free and open source &mdash; consider sponsoring us on Github!</p>
+    <a href="https://github.com/sponsors/sense" class="button bg-gray-900 text-white hover:bg-gray-700 focus:ring-offset-gray-800">Buy us a slice of pizza!</a>
+</div>
+
+<div class="grid md:grid-cols-3 gap-y-6 md:gap-6 mt-6 lg:ga-x-8">
+    <a href="https://laravelshopper.io/discord" class="bg-white border border-gray-200 rounded-md p-5 hover:bg-gradient-to-tl from-gray-50">
+        <header>
+            <div class="flex items-center justify-center h-12 w-12">
+                <img src="/img/people/person-9.svg" alt="Retro TV Set" class="h-6 w-6">
+            </div>
+            <p class="mt-1 text-lg leading-6 font-medium text-gray-900">Community</p>
+        </header>
+        <p class="mt-2 text-sm text-gray-500">Hang out with truly exceptional devs & designers on Discord.</p>
+    </a>
+    <a href="/screencasts" class="bg-white border border-gray-200 rounded-md p-5 hover:bg-gradient-to-tl from-gray-50">
+        <header>
+            <div class="flex items-center justify-center h-12 w-12">
+                <img src="/img/tv.svg" alt="Retro TV Set" class="h-6 w-6">
+            </div>
+            <p class="mt-1 text-lg leading-6 font-medium text-gray-900">Watch + Learn</p>
+        </header>
+        <p class="mt-2 text-sm text-gray-500">Tips, tricks, and tutorials on how to build an e-commerce store with Shopper.</p>
+    </a>
+    <a href="https://twitter.com/laravelshopper" class="bg-white border border-gray-200 rounded-md p-5 hover:bg-gradient-to-tl from-gray-50">
+        <header>
+            <div class="flex items-center justify-center h-12 w-12">
+                <img src="/img/tv.svg" alt="Retro TV Set" class="h-6 w-6">
+            </div>
+            <p class="mt-1 text-lg leading-6 font-medium text-gray-900">@Laravelshopper on Twitter</p>
+        </header>
+        <p class="mt-2 text-sm text-gray-500">Hang out with truly exceptional devs & designers on Discord.</p>
+    </a>
+</div>
+
+<section class="markdown mt-6 md:mt-20">
+    <h2>Recent Updates</h2>
+    <p>Keep your Shopper up-to-date with the latest updates to the docs.</p>
+    <table>
+        <thead>
+            <th>Page</th>
+            <th>Section</th>
+            <th>Last Updated</th>
+        </thead>
+        <tbody>
+            {{ collection from="docs|screencasts" sort="last_modified:desc" limit="5" title:not="Documentation" scope="entry" }}
+                <tr>
+                    <td class="w-1/2"><a href="{{ entry:url }}">{{ entry:title ?? entry:slug|title }}</a></td>
+                    <td>{{ entry:collection | deslugify | title }}</td>
+                    <td x-text="dayjs('{{ entry:last_modified format="Y-m-d H:i:s" }}').fromNow(true) + ' ago'"></td>
+                </tr>
+            {{ /collection }}
+        </tbody>
+    </table>
+</section>
+

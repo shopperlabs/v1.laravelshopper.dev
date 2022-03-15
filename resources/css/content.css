@@ -1,0 +1,287 @@
+/* Main Content */
+/* -------------------------------------------------- */
+
+::-moz-selection,
+::selection {
+    @apply bg-blue-600;
+}
+
+article, .markdown {
+    @apply text-gray-500 leading-relaxed;
+
+    h1 {
+        @apply font-sans text-black font-extrabold text-4xl lg:text-5xl mb-6;
+    }
+
+    h2 {
+        @apply font-sans text-black font-extrabold text-3xl mb-6 md:mt-16 relative;
+    }
+
+    h2:not(:first-of-type) {
+        @apply border-t border-gray-200 border-dashed pt-14;
+    }
+
+    h3 {
+        @apply font-sans text-black font-extrabold text-2xl mb-2 mt-12 relative;
+    }
+
+    h4 {
+        @apply font-sans text-black font-bold text-lg mb-0 mt-12 relative;
+    }
+
+    h5 {
+        @apply font-sans text-black font-bold text-base -mb-4 mt-12 relative;
+    }
+
+    p {
+        @apply text-base mb-6;
+        /* line-height: 1.5em; */
+    }
+
+    ul, ol {
+        @apply mt-4 mb-6;
+    }
+
+    a {
+        @apply text-blue-600 font-medium underline;
+
+        &:hover {
+            @apply text-sky-600;
+        }
+    }
+
+    a svg.external {
+        @apply inline-block;
+        vertical-align: text-top;
+        color: rgba(0,0,0,.6);
+    }
+
+    h2 > .anchor,
+    h3 > .anchor,
+    h4 > .anchor {
+        @apply absolute top-0 no-underline text-white opacity-0 block;
+        text-shadow: -1px -1px 0 theme('colors.blue.500'),
+            1px -1px 0 theme('colors.blue.500'),
+            -1px 1px 0 theme('colors.blue.500'),
+            1px 1px 0 theme('colors.blue.500');
+        transition: all .2s ease-in-out;
+        &:hover {
+            @apply text-blue-500;
+            text-shadow: none;
+        }
+    }
+
+    h2 > .anchor {
+        @apply -left-6 pr-4;
+    }
+
+    h2:not(:first-of-type) > .anchor {
+        @apply top-14;
+    }
+
+    h2:hover > .anchor {
+        @apply -left-8 opacity-100;
+    }
+
+    h3 > .anchor {
+        @apply -left-3 pr-2;
+    }
+
+    h3:hover > .anchor {
+        @apply -left-5 opacity-100;
+    }
+
+    h4 > .anchor {
+        @apply -left-2 pr-2;
+    }
+
+    h4:hover > .anchor {
+        @apply -left-4 opacity-100;
+    }
+
+    >ul:not([class*="list-"]) {
+        @apply pl-0 list-none mb-6 text-base;
+
+        li {
+            @apply relative pl-6 mb-2;
+
+            &::before {
+                @apply absolute inline-block;
+                content: url('/img/triangle-pink.svg');
+                top: 6px;
+                left: 2px;
+            }
+
+            &:nth-child(3n+0)::before {
+                content: url('/img/triangle-pink.svg');
+            }
+
+            &:nth-child(3n+1)::before {
+                content: url('/img/triangle-purple.svg');
+            }
+
+            &:nth-child(3n+2)::before {
+                content: url('/img/triangle-teal.svg');
+            }
+
+            code {
+                @apply text-sm;
+            }
+        }
+    }
+
+    ul a {
+        @apply underline text-blue-500 font-medium;
+
+        &:hover {
+            @apply text-blue-600;
+        }
+    }
+
+    > ol {
+        @apply list-none text-base relative;
+        counter-reset: item;
+        z-index: 20;
+
+        >li {
+            @apply relative pl-10 mb-2;
+            z-index: 5;
+        }
+
+        >li::before {
+            @apply absolute top-0 left-0 mt-px flex items-center justify-center h-6 w-6 bg-blue-500 text-white rounded-full text-lg font-bold font-display;
+            content: counter(item);
+            counter-increment: item;
+        }
+    }
+
+    > ol.ninja {
+        > li::before {
+            @apply bg-ninja-green;
+            z-index: -2;
+        }
+        > li::after {
+            @apply w-6 h-1 absolute top-2 left-0 right-0;
+            content: '';
+            z-index: -1;
+        }
+        >li:nth-child(1)::after {
+            @apply bg-ninja-red;
+        }
+        >li:nth-child(2)::after {
+            @apply bg-ninja-blue;
+        }
+        >li:nth-child(3)::after {
+            @apply bg-ninja-orange;
+        }
+        >li:nth-child(4)::after {
+            @apply bg-ninja-purple;
+        }
+    }
+
+    table {
+        @apply min-w-full divide-y divide-gray-200 ring-1 ring-gray-300 rounded-md overflow-hidden my-6;
+        border-spacing: 0;
+
+        thead {
+          @apply bg-gray-50;
+            th {
+                @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900;
+            }
+        }
+
+        tbody {
+          @apply divide-y divide-gray-200 bg-white;
+            /*tr {
+                @apply even:bg-gray-lightest;
+            }
+            tr:last-child {
+                @apply rounded-b;
+            }*/
+            td {
+                @apply whitespace-nowrap py-4 px-3 text-sm text-gray-500;
+            }
+            p {
+                @apply text-sm md:text-base leading-tight;
+            }
+            :not(pre) > code {
+                @apply bg-transparent text-xs md:text-sm font-bold text-blue-500;
+            }
+        }
+    }
+
+    /* blockquote {
+        @apply font-display mt-16;
+        p {
+            @apply inline-block pb-2 italic text-2xl font-extrabold ;
+            background: url('/img/ziggy.svg') 0 90% repeat-x;
+            background-size: auto 4px;
+        }
+    } */
+
+    /* Code blocks in headers */
+    h1>code,
+    h2>code,
+    h3>code,
+    h4>code {
+        @apply text-pink-500 bg-gray-100 rounded relative;
+        font-size: 90%;
+        padding: .1em .2em;
+        bottom: .05rem;
+    }
+}
+
+header.markdown p {
+    @apply text-xl leading-normal;
+}
+
+
+/* Main Content in Tight Spaces */
+/* -------------------------------------------------- */
+
+.markdown-tight, table {
+    h1, h2, h3, h4, h5, h6 {
+        @apply m-0;
+    }
+
+    p, ul, ol {
+        font-size: inherit;
+    }
+
+    p:last-child {
+        @apply mb-0;
+    }
+}
+
+.parameter .markdown {
+    p {
+        @apply text-base;
+    }
+
+    :not(pre)>code {
+        @apply bg-transparent text-blue-500 font-bold text-sm;
+    }
+}
+
+
+/* Multi-column list */
+/* -------------------------------------------------- */
+
+ul.list-col {
+    @apply space-y-2 mt-2;
+    column-count: 2;
+
+    li {
+        @apply pr-5;
+    }
+
+    li a {
+        @apply text-black no-underline hover:text-pink-500;
+    }
+}
+
+@media screen(lg) {
+    ul.list-col {
+        column-count: 3;
+    }
+}
