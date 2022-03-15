@@ -44,7 +44,7 @@ In order to ensure that the Statamic community is welcoming to all and generally
 
 - [Shopper Main Site](https://laravelshopper.io)
 - [Shopper Documentation][docs]
-- [Shopper framework Repo][cms-repo] (that we maintain)
+- [Shopper framework Repo][app-repo] (that we maintain)
 - [Shopper Discord][discord]
 
 [docs]: https://laravelshopper.dev/
