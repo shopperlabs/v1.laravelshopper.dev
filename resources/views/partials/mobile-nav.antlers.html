@@ -7,7 +7,7 @@
                 <path d="M0 0L10 10M10 0L0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
         </button>
-        <nav id="nav" class="lg:text-sm lg:leading-6 relative">
+        <nav id="nav" class="text-sm relative">
             <div class="mb-10">
                 {{ nav:collection:sections include_home="true" }}
                 <a href="{{ url }}" class="group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-gray-700 hover:text-gray-900 {{ page:section === section ?= 'text-blue-800 hover:text-blue-800' }}">
@@ -21,5 +21,22 @@
                 {{ partial:sidebar }}
             {{ /if }}
         </nav>
+    </div>
+</div>
+
+<div x-show="showMenu" class="fixed z-50 inset-0 lg:hidden"  role="dialog" aria-modal="true">
+    <div x-show="showMenu" class="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true"></div>
+    <div class="fixed top-10 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-gray-900">
+        <button @click="showMenu = false" type="button" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-600" tabindex="0">
+            <span class="sr-only">Close navigation</span>
+            <svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
+                <path d="M0 0L10 10M10 0L0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <ul class="space-y-6">
+            <li><a href="https://twitter.com/laravelshopper" class="hover:text-blue-500">Twitter</a></li>
+            <li><a href="https://github.com/shopperlabs/framework" class="hover:text-blue-500">Github</a></li>
+            <li><a href="https://discord.gg/vXKBTdKRxc" class="hover:text-blue-500">Discord</a></li>
+        </ul>
     </div>
 </div>
