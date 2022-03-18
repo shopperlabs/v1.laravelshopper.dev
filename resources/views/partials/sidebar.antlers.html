@@ -1,0 +1,22 @@
+<div class="side-nav">
+    <ul>
+        {{ nav :handle="section" }}
+        <li class="mt-10 lg:mt-8">
+            <h5 class="mb-8 lg:mb-3 font-semibold text-gray-700 uppercase tracking-wide text-sm lg:text-xs">
+                <span>{{ title }}</span>
+            </h5>
+            <ul class="mt-0 space-y-6 lg:space-y-2 border-l border-gray-100">
+                {{ if children }}
+                    {{ children scope="child" }}
+                        <li class="{{ is_current || is_parent ?= 'active' }}" {{ if is_current || is_parent }}x-effect="open = '{{ parent:title }}'"{{ /if }}>
+                            <a href="{{ url }}" class="block border-l-2 pl-4 -ml-px border-transparent hover:border-gray-400 text-gray-700 hover:text-gray-900">
+                                {{ nav_title ?? title }}
+                            </a>
+                        </li>
+                    {{ /children }}
+                {{ /if }}
+            </ul>
+        </li>
+        {{ /nav }}
+    </ul>
+</div>

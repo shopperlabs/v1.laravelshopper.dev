@@ -42,9 +42,33 @@
 
 /* Overrides */
 /* -------------------------------------------------- */
+.DocSearch--active {
+  @apply overflow-hidden !important;
+}
+
+.DocSearch-Container {
+  @apply w-screen h-screen fixed z-[200] top-0 left-0 flex flex-col bg-black/20 backdrop-blur-sm p-4 sm:p-6 md:p-[10vh] lg:p-[12vh];
+}
 
 .DocSearch-Modal {
-    @apply rounded-lg border !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 47.375rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  border-radius: theme('borderRadius.lg') !important;
+  box-shadow: theme('boxShadow.lg');
+  overflow: hidden;
+  background: white !important;
+}
+
+.DocSearch-Dropdown-Container {
+  @apply pb-6;
+}
+
+.DocSearch-Dropdown {
+  @apply flex-auto overflow-auto;
 }
 
 .DocSearch-Hit-Container {

@@ -10,11 +10,11 @@ article, .markdown {
     @apply text-gray-500 leading-relaxed;
 
     h1 {
-        @apply font-sans text-black font-extrabold text-4xl lg:text-5xl mb-6;
+        @apply font-sans text-gray-900 font-extrabold text-4xl lg:text-5xl mb-6;
     }
 
     h2 {
-        @apply font-sans text-black font-extrabold text-3xl mb-6 md:mt-16 relative;
+        @apply font-sans text-gray-900 font-extrabold text-3xl mb-6 md:mt-16 relative;
     }
 
     h2:not(:first-of-type) {
@@ -22,15 +22,15 @@ article, .markdown {
     }
 
     h3 {
-        @apply font-sans text-black font-extrabold text-2xl mb-2 mt-12 relative;
+        @apply font-sans text-gray-900 font-extrabold text-2xl mb-2 mt-12 relative;
     }
 
     h4 {
-        @apply font-sans text-black font-bold text-lg mb-0 mt-12 relative;
+        @apply font-sans text-gray-900 font-bold text-lg mb-0 mt-12 relative;
     }
 
     h5 {
-        @apply font-sans text-black font-bold text-base -mb-4 mt-12 relative;
+        @apply font-sans text-gray-900 font-bold text-base -mb-4 mt-12 relative;
     }
 
     p {

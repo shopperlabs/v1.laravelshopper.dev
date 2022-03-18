@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-SemiBoldItalic.eot');
+    src: local('Euclid Triangle SemiBold Italic'), local('EuclidTriangle-SemiBoldItalic'),
+        url('EuclidTriangle-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-SemiBoldItalic.woff2') format('woff2'),
+        url('EuclidTriangle-SemiBoldItalic.woff') format('woff'),
+        url('EuclidTriangle-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-Bold.eot');
+    src: local('Euclid Triangle Bold'), local('EuclidTriangle-Bold'),
+        url('EuclidTriangle-Bold.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-Bold.woff2') format('woff2'),
+        url('EuclidTriangle-Bold.woff') format('woff'),
+        url('EuclidTriangle-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-MediumItalic.eot');
+    src: local('Euclid Triangle Medium Italic'), local('EuclidTriangle-MediumItalic'),
+        url('EuclidTriangle-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-MediumItalic.woff2') format('woff2'),
+        url('EuclidTriangle-MediumItalic.woff') format('woff'),
+        url('EuclidTriangle-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-Light.eot');
+    src: local('Euclid Triangle Light'), local('EuclidTriangle-Light'),
+        url('EuclidTriangle-Light.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-Light.woff2') format('woff2'),
+        url('EuclidTriangle-Light.woff') format('woff'),
+        url('EuclidTriangle-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-Regular.eot');
+    src: local('Euclid Triangle Regular'), local('EuclidTriangle-Regular'),
+        url('EuclidTriangle-Regular.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-Regular.woff2') format('woff2'),
+        url('EuclidTriangle-Regular.woff') format('woff'),
+        url('EuclidTriangle-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-LightItalic.eot');
+    src: local('Euclid Triangle Light Italic'), local('EuclidTriangle-LightItalic'),
+        url('EuclidTriangle-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-LightItalic.woff2') format('woff2'),
+        url('EuclidTriangle-LightItalic.woff') format('woff'),
+        url('EuclidTriangle-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-Medium.eot');
+    src: local('Euclid Triangle Medium'), local('EuclidTriangle-Medium'),
+        url('EuclidTriangle-Medium.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-Medium.woff2') format('woff2'),
+        url('EuclidTriangle-Medium.woff') format('woff'),
+        url('EuclidTriangle-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-Italic.eot');
+    src: local('Euclid Triangle Italic'), local('EuclidTriangle-Italic'),
+        url('EuclidTriangle-Italic.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-Italic.woff2') format('woff2'),
+        url('EuclidTriangle-Italic.woff') format('woff'),
+        url('EuclidTriangle-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-BoldItalic.eot');
+    src: local('Euclid Triangle Bold Italic'), local('EuclidTriangle-BoldItalic'),
+        url('EuclidTriangle-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-BoldItalic.woff2') format('woff2'),
+        url('EuclidTriangle-BoldItalic.woff') format('woff'),
+        url('EuclidTriangle-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Triangle';
+    src: url('EuclidTriangle-SemiBold.eot');
+    src: local('Euclid Triangle SemiBold'), local('EuclidTriangle-SemiBold'),
+        url('EuclidTriangle-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('EuclidTriangle-SemiBold.woff2') format('woff2'),
+        url('EuclidTriangle-SemiBold.woff') format('woff'),
+        url('EuclidTriangle-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+

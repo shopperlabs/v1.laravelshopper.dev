@@ -1,8 +1,8 @@
 <div class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-gray-900/10 bg-white/95 supports-backdrop-blur:bg-white/60">
     {{ partial:partials/promo }}
     <div class="max-w-8xl mx-auto">
-        <div class="py-4 border-b border-gray-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
-            <div class="relative flex items-center">
+        <div class="relative border-b border-gray-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
+            <div class="relative flex items-center justify-between h-16 sm:items-stretch">
                 <a class="flex items-center group mr-4 flex-none w-[2.0625rem] overflow-hidden md:w-auto" href="/">
                     <span class="sr-only">Laravel Shopper home page</span>
                     <svg class="w-auto h-6" viewBox="0 0 120 145" width="120" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,14 @@
                     </svg>
                     <span class="hidden md:block font-medium text-base text-gray-900 ml-4 group-hover:text-blue-800">Documentation</span>
                 </a>
-                <nav class="hidden lg:block ml-auto">
+                <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
+                    {{ nav:collection:sections include_home="true" }}
+                        <a href="{{ url }}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium {{ page:section === section ? 'border-blue-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
+                            {{ title }}
+                        </a>
+                    {{ /nav:collection:sections }}
+                </div>
+                <nav class="hidden lg:flex lg:items-center sm:ml-6">
                     <ul class="flex space-x-5 text-sm leading-6 font-semibold text-gray-700">
                         <li>
                             <a href="https://twitter.com/laravelshopper" class="block w-6 h-6 text-gray-400 hover:text-gray-500">
@@ -62,25 +69,27 @@
                         </li>
                     </ul>
                 </nav>
-                <button type="button" class="ml-auto text-gray-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-gray-600 lg:hidden">
-                    <span class="sr-only">Search</span>
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="m19 19-3.5-3.5"/>
-                        <circle cx="11" cy="11" r="6"/>
-                    </svg>
-                </button>
-                <div class="ml-2 -my-1 lg:hidden">
-                    <button type="button" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600">
-                        <span class="sr-only">Navigation</span>
-                        <svg width="24" height="24" fill="none" aria-hidden="true">
-                            <path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <div class="flex items-center lg:hidden">
+                    <button @click="document.getElementsByClassName('DocSearch-Button')[0].click()" type="button" class="ml-auto text-gray-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-gray-600">
+                        <span class="sr-only">Search</span>
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="m19 19-3.5-3.5"/>
+                            <circle cx="11" cy="11" r="6"/>
                         </svg>
                     </button>
+                    <div class="ml-2 -my-1">
+                        <button type="button" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600">
+                            <span class="sr-only">Navigation</span>
+                            <svg width="24" height="24" fill="none" aria-hidden="true">
+                                <path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="flex items-center p-4 border-b border-gray-900/10 lg:hidden">
-            <button type="button" class="text-gray-500 hover:text-gray-600">
+            <button @click="showNav = true" type="button" class="text-gray-500 hover:text-gray-600">
                 <span class="sr-only">Navigation</span>
                 <svg width="24" height="24">
                     <path d="M5 6h14M5 12h14M5 18h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -88,43 +97,13 @@
             </button>
             <ol class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0">
                 <li class="flex items-center">
-                    Getting Started
+                    {{ parent:title }}
                     <svg width="3" height="6" aria-hidden="true" class="mx-3 overflow-visible text-gray-400">
                         <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                     </svg>
                 </li>
-                <li class="font-semibold text-gray-900 truncate">Installation: Tailwind CLI</li>
+                <li class="font-semibold text-gray-900 truncate">{{ title }}</li>
             </ol>
         </div>
     </div>
 </div>
-
-<!--<nav id="site-nav-mobile" class="site-nav md:hidden w-full border-b items-center justify-between pl-4 font-display py-1">
-    <div class="w-full flex items-center justify-between">
-        <a href="/" class="text-pink hover:text-purple">
-            {{ svg src="statamic-mark" class="block h-8 w-8" title="Statamic"}}
-        </a>
-        <div class="flex md:hidden relative items-center w-full ml-3 h-8 rounded border border-black shadow-sm">
-                <input
-                    class="focus:outline-none placeholder-black antialised px-3 flex-1 appearance-none"
-                    type="text" placeholder="Search..." @click="document.getElementsByClassName('DocSearch-Button')[0].click()" />
-                <button class="bg-black hover:bg-purple text-white px-2 text-sm h-full">
-                    {{ svg src="search" class="text-white p-px" }}
-                </button>
-        </div>
-        <button type="button"
-                id="sidebar-open"
-                x-bind:class="{ 'hidden': showNav }"
-                @click="showNav = true"
-                class="flex p-4 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700">
-                {{ svg src="menu" class="w-7 h-7" }}
-        </button>
-        <button type="button"
-            id="sidebar-close"
-            x-bind:class="{ 'hidden': ! showNav }"
-            @click="showNav = false"
-            class="lg:flex p-4 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700">
-            {{ svg src="close" class="w-7 h-7" }}
-        </button>
-    </div>
-</nav>-->

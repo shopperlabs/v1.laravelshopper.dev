@@ -3,7 +3,7 @@
  overflow-x-auto is recommended.
 */
 pre {
-    @apply my-6 rounded overflow-x-auto leading-loose antialiased font-mono-alt;
+    @apply my-6 rounded overflow-x-auto leading-loose antialiased font-mono;
 }
 
 /*

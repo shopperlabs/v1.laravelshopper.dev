@@ -1,0 +1,25 @@
+<div x-show="showNav" class="fixed z-50 inset-0 overflow-y-auto lg:hidden" role="dialog" aria-modal="true" style="display: none;">
+    <div x-show="showNav" class="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" @keydown.window.escape="showNav = false"></div>
+    <div class="relative bg-white w-80 max-w-[calc(100%-3rem)] p-6 min-h-full">
+        <button @click="showNav = false" type="button" class="absolute z-10 top-5 right-5 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-600" tabindex="0">
+            <span class="sr-only">Close navigation</span>
+            <svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible">
+                <path d="M0 0L10 10M10 0L0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <nav id="nav" class="lg:text-sm lg:leading-6 relative">
+            <div class="mb-10">
+                {{ nav:collection:sections include_home="true" }}
+                <a href="{{ url }}" class="group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-gray-700 hover:text-gray-900 {{ page:section === section ?= 'text-blue-800 hover:text-blue-800' }}">
+                    {{ svg src=slug class="block w-6 h-6" title=title }}
+                    <span class="ml-3">{{ title }}</span>
+                </a>
+                {{ /nav:collection:sections }}
+            </div>
+
+            {{ if section }}
+                {{ partial:sidebar }}
+            {{ /if }}
+        </nav>
+    </div>
+</div>
