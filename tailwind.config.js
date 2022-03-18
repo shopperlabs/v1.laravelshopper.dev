@@ -29,7 +29,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Inter var', 'sans-serif'],
-        'mono-alt': ['Operator Mono', 'monospace'],
+        sans: ['Euclid Triangle', 'Inter', defaultTheme.fontFamily.sans],
         mono: ['Fira Code', 'monospace', ...defaultTheme.fontFamily.mono],
         system: defaultTheme.fontFamily.sans,
       },
