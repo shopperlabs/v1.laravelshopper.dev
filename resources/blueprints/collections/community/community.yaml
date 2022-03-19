@@ -1,0 +1,21 @@
+sections:
+  main:
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+      -
+        handle: content
+        field:
+          type: markdown
+          localizable: true
+  sidebar:
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+title: Community

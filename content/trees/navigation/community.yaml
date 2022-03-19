@@ -1,0 +1,12 @@
+tree:
+  -
+    id: da307b97-7d88-4cde-9130-a6eb51b0b754
+    title: Community
+    children:
+      -
+        id: 3b7854af-2f76-47a6-a347-99a7d3561046
+        entry: dea27f49-7cba-4461-bd2a-32aab078b9ec
+        title: Sponsoring
+      -
+        id: ab175399-03b3-4a8a-843b-60993497026d
+        entry: f838e08d-b346-4b88-8568-7e2fab7b1fc0

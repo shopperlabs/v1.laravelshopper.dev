@@ -2,28 +2,50 @@
 id: 72c7218e-1a9f-49a6-904d-ed8588e57869
 blueprint: sections
 title: 'Extending Shopper'
-intro: 'While Statamic contains countless features, you are free to add more, or modify existing ones.'
+intro: 'Although Shopper is primarily designed for e-commerce sites and has many associated features, you are free to add or modify existing ones.'
 template: extending.index
 section: extending_docs
 ---
-## To addon, or not to addon?
+## Why extends Shopper ?
+One might ask, knowing that the purpose of setting up an e-commerce site is simply to make the whole system work without always wanting to add to it.
 
-In Statamic v2, practically every customization would need to be contained within an addon, even if you had no intention of distributing it.
+For example if you want a blog on your store, a section for a KYC, or maybe a forum, instead of creating another project to manage this you can directly extend Shopper to manage all this in the same administration area.
 
-Since Statamic v3 is a Laravel package, you are in control over your application code. You're free to add whatever extra code you like.
 
-This makes the distinction much clearer: **If you want to reuse, distribute, or sell your features; you should make an addon.** Otherwise, you can just add things to your Laravel application.
+## How to extend Shopper
 
-## How to extend Statamic
+To add new features to Shopper, the first thing you need to do is to register a new element in the sidebar by creating an event (for example `RegisterCustomMenu`) and load it directly into your `AppServiceProvider` like this
 
-Some features can simply be placed in the right spot and they'll be wired up automatically. For example, placing a [tag](/extending/tags) class inside `app/Tags` will make it available to your templates without any extra wiring.
+```php
+namespace App\Providers;
 
-Others could require some wiring, which would typically go in a service provider.
+...
+use Shopper\Framework\Events\BuildingSidebar; // [tl! focus]
 
-## How **not** to extend Statamic {#how-not-to-extend-statamic}
+class AppServiceProvider extends ServiceProvider
+{
+  ...
+    
+  public function registerCustomShopperSidebar() // [tl! focus]
+  { // [tl! focus]
+        $this->app['events']->listen(BuildingSidebar::class, RegisterCustomMenu::class); // [tl! focus]
+  } // [tl! focus]
+    
+}
+
+```
+
+The rest of the configuration will be done using the configuration files in the `config/shopper/` folder
+
+- `/routes.php` for the routes that should be dynamically loaded for the admin panel
+- `/system.php` for the controllers that should be loaded for each route.
+
+We will deal with all this in more detail later.
+
+## How **not** to extend Shopper {#how-not-to-extend-shopper}
 
 It should go without saying — but we'll say it anyway just in case...
 
-Don't ever, for any reason, ever, no matter what, no matter where, or who, or who you are with, or where you are going or... or where you've been... ever, for any reason, whatsoever, edit the files inside `/vendor/statamic`. Or any other Composer package. Anything you do will get blown away and you'll lose those changes forever and ever amen.
+Don't ever, for any reason, ever, no matter what, no matter where, or who, or who you are with, or where you are going or... or where you've been... ever, for any reason, whatsoever, edit the files inside `/vendor/shopper`. Or any other Composer package. Anything you do will get blown away and you'll lose those changes forever and ever amen.
 
-You should instead build addons, extensions, and submit pull requests to [core](https://github.com/statamic/cms) (after checking with the team first if we'll accept them). Thanks!
+You should instead build addons, extensions, and submit pull requests to [core](https://github.com/shopperlabs/framework) (after checking with the team first if we'll accept them). Thanks!
