@@ -25,3 +25,5 @@ preferences:
       columns:
         - title
         - intro
+    sections:
+      after_save: continue_editing
