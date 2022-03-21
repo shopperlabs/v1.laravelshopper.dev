@@ -41,6 +41,10 @@ class Hint extends AbstractBlock
             return $this->title;
         }
 
+        if ($this->type === 'danger') {
+            return 'Pay Attention!';
+        }
+
         if ($this->type === 'warning') {
             return 'Warning!';
         }
