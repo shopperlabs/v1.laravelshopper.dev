@@ -78,20 +78,35 @@ You can also change the views too and return your own views.
 In your administration area you must click on the "cog" icon to display the settings page of your store.
 
 
-- From your admin panel blue sidebar, go to `Settings > Locations`.
+- From your admin panel, on the blue sidebar click on the cog icon, go to `Settings > Locations`.
+
+<div class="screenshot">
+  <img src="/img/settings-location.png" alt="Setting location">
+  <div class="caption">Settings > locations</div>
+</div>
 
 
-### Create location
+### Add location
 
 In your administration area you must click on the "cog" icon to display the settings page of your store.
 
 1. Click Add location.
 2. Enter a unique name and an address for the location.
 
-To update a location you click on an available location among those you have saved and you will have the update page.
+<div class="screenshot">
+  <img src="/img/add-location.png" alt="Add location">
+  <div class="caption">Add location</div>
+</div>
 
 
 ### Edit location
+
+To update a location you click on an available location among those you have saved and you will have the update page.
+
+<div class="screenshot">
+  <img src="/img/update-location.png" alt="update location">
+  <div class="caption">Update location</div>
+</div>
 
 
 ### Define a default location.
@@ -100,6 +115,10 @@ The default location is the one in which all products will be collected with eac
 
 You select a location and during the modification you click on the checkbox **Set as default inventory**
 
+<div class="screenshot">
+  <img src="/img/default-location.png" alt="Set default location">
+  <div class="caption">Set default location</div>
+</div>
 
 
 ### Delete location
