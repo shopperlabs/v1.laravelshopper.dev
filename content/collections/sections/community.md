@@ -13,7 +13,7 @@ updated_at: 1632428132
 
 If you want to chat with other Shopper users in real-time, check out our [Discord server](https://discord.gg/vXKBTdKRxc). There are always hundreds of people online answering each other's questions, getting feedback on their projects, and sharing what they've built.
 
-[Chat about Shopper on Discord &rarr;](https://discord.gg/vXKBTdKRxc)
+[Chat about Shopper on Discord &rarr;](https://laravelshopper.io/discord)
 
 
 ## GitHub

@@ -42,7 +42,7 @@ class Setting extends Model
 
 ### Fields
 
-| Fields       | Type      | Notes |
+| Name        | Type      | Notes |
 |--------------|-----------|------------|
 | `id` 		   | autoinc   |       |
 | `key`	       | string    | Unique, the configuration key that will be used to retrieve this information. |
@@ -227,7 +227,7 @@ To edit your shop information, you must:
   <div class="caption">Admin setting</div>
 </div>
 
-The component used to update store setting of the store is found in the component configuration file `config/shopper/components.php`, It's the `Shopper\Framework\Http\Livewire\Settings\General` component..
+The component used to update store setting of the store is found in the component configuration file `config/shopper/components.php`, It's the `Shopper\Framework\Http\Livewire\Settings\General` component.
 
 ```php
 use Shopper\Framework\Http\Livewire;

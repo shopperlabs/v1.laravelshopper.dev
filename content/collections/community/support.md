@@ -14,7 +14,7 @@ If you need help with something related to your project please email us at suppo
 
 If you have questions you can contact our support directly through the Support channel to report a bug etc., we recommend joining the Shopper Discord community and asking your question to the group:
 
-[Join the Shopper Discord Community](https://discord.gg/vXKBTdKRxc)
+[Join the Shopper Discord Community](https://laravelshopper.io/discord)
 
 
 ## Bug Report
