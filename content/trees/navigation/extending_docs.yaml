@@ -5,9 +5,29 @@ tree:
   -
     id: affc2001-e4f5-4e06-9e00-58dd88edbb6e
     title: 'Control Panel'
-  -
-    id: 73354789-cbf2-4bee-ab86-b289d748a64d
-    title: Javascript
+    children:
+      -
+        id: 299d0be5-6753-4e45-ac01-b063b852ef81
+        entry: d11a2602-9bb6-4b89-b737-0c4778f8f51f
+      -
+        id: 2ed99948-380e-4dd0-9bf4-f1bbe9d81683
+        entry: 08f165e8-5a14-4804-b4af-22f9a112b87f
+      -
+        id: 2190fd0a-f556-428d-8924-3c298f06beb0
+        entry: b5e7ff69-0c6b-4f18-bb2f-2c3eff38e18f
   -
     id: a6b12519-6352-452b-9daf-b7dd76880fb2
-    title: 'CSS (Tailwind)'
+    title: Components
+    children:
+      -
+        id: ad50dd08-0574-4394-be9e-8f100c225f9d
+        entry: 1ee99b4c-0a44-48d9-af0e-7fab13f52d38
+      -
+        id: 727177c5-3ab9-44f3-b7b8-cfe18013eaef
+        entry: 11fdeb8c-9ae6-4693-a9e2-60effbee9031
+      -
+        id: 7cc31d03-1b8c-4b25-acf5-cc22d256efe9
+        entry: e80ded39-87e8-4dba-8bb0-2c640d6e1428
+      -
+        id: 2aca1cd2-6c2f-45d3-8e29-a1f95cbd9d0d
+        entry: 59e0189f-5a33-49fa-a45c-5bb369c935e2
