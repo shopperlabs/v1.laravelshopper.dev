@@ -180,44 +180,33 @@ article, .markdown {
     }
 
     table {
-        @apply min-w-full divide-y divide-gray-200 ring-1 ring-gray-300 rounded-md overflow-hidden my-6;
+        @apply divide-y divide-gray-200 ring-1 ring-gray-300 rounded-md overflow-hidden w-full my-6;
         border-spacing: 0;
 
         thead {
-          @apply bg-gray-50;
+          @apply bg-gray-50 font-sans;
             th {
-                @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900;
+                @apply px-4 py-3.5 text-left text-sm font-semibold text-gray-900 md:px-5;
             }
         }
 
         tbody {
           @apply divide-y divide-gray-200 bg-white;
-            /*tr {
-                @apply even:bg-gray-lightest;
-            }
-            tr:last-child {
-                @apply rounded-b;
-            }*/
+
             td {
-                @apply whitespace-nowrap py-4 px-3 text-sm text-gray-500;
+                @apply py-4 px-3 text-sm text-gray-700 leading-6;
             }
             p {
                 @apply text-sm md:text-base leading-tight;
+            }
+            code {
+              @apply whitespace-nowrap;
             }
             :not(pre) > code {
                 @apply bg-transparent text-xs md:text-sm font-bold text-blue-500;
             }
         }
     }
-
-    /* blockquote {
-        @apply font-display mt-16;
-        p {
-            @apply inline-block pb-2 italic text-2xl font-extrabold ;
-            background: url('/img/ziggy.svg') 0 90% repeat-x;
-            background-size: auto 4px;
-        }
-    } */
 
     /* Code blocks in headers */
     h1>code,

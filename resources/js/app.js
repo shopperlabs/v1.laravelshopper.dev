@@ -2,10 +2,12 @@ import Alpine from 'alpinejs';
 import docsearch from '@docsearch/js';
 import '@docsearch/css';
 
-require('./anchors.js')
+require('./anchors')
 require('./scrollspy')
-require('./cookies.js')
-require('./external-links.js')
+require('./cookies')
+require('./external-links')
+require('./language-badges')
+require('./clipboard')
 
 var dayjs = require('dayjs')
 var relativeTime = require('dayjs/plugin/relativeTime')

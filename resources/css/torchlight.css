@@ -3,17 +3,16 @@
  overflow-x-auto is recommended.
 */
 pre {
-    @apply my-6 rounded overflow-x-auto leading-loose antialiased font-mono;
+    @apply my-6 relative rounded-md overflow-hidden overflow-x-auto overflow-y-visible leading-loose antialiased font-mono;
 }
 
 /*
   Inline code
 */
 :not(pre)>code {
-    @apply text-purple-500 rounded;
-    padding: 1px 2px;
+    @apply text-sky-600 bg-sky-50 rounded;
+    padding: 2px 3px;
     font-size: 15px;
-    background-color: #E7ECF1;
     word-break: break-word;
 }
 
@@ -24,7 +23,7 @@ pre {
  colors extend edge to edge.
 */
 pre code.torchlight {
-    @apply block py-2 md:py-4 min-w-max text-sm leading-loose;
+    @apply relative block py-2 md:py-4 min-w-max text-sm leading-loose;
 }
 
 /*
@@ -41,6 +40,15 @@ pre code.torchlight .line {
 pre code.torchlight .line-number,
 pre code.torchlight .summary-caret {
     @apply mr-4;
+}
+
+pre .language-badge {
+  @apply text-white tracking-widest inline-block absolute right-6 opacity-50 top-0 p-2 uppercase select-none;
+  font-size: 10px;
+}
+
+pre button {
+  @apply text-white tracking-widest inline-block absolute right-0 opacity-50 top-0 p-2 uppercase;
 }
 
 .torchlight summary:focus {

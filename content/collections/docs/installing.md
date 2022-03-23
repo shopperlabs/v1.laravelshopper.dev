@@ -88,7 +88,7 @@ Now we can create a new superuser and sign into the Dashboard and start creating
 
 Run the following command to create a user with supreme \(at the moment of creation\) rights:
 
-```bash
+```shell
 php artisan shopper:admin
 ```
 
@@ -114,6 +114,6 @@ After that, run `composer dump-autoload` to finish your installation!
 
 If your are using Laravel Valet you can easily access with your project name with `.test` at the end when you navigate on you project.
 
-```bash
+```shell
 http://laravelshopper.test/shopper
 ```

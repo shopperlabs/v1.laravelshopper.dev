@@ -2,28 +2,48 @@
 /* -------------------------------------------------- */
 
 .hint {
-    @apply bg-pink-50 px-7 pt-7 pb-5 my-20 text-black border relative;
+    @apply bg-gray-50 px-7 pt-7 pb-5 my-20 text-gray-900 border border-gray-300 rounded-md relative;
 
     .hint-title {
-        @apply font-sans shadow uppercase bg-gray-100 text-black inline-block py-1.5 px-2 leading-none absolute -left-4 -top-3 m-0 border -rotate-6 font-semibold tracking-wide;
+        @apply font-sans uppercase bg-gray-700 rounded text-gray-300 inline-block py-1.5 px-2 leading-none absolute -left-4 -top-3 m-0 border-2 border-white -rotate-6 font-semibold tracking-wide;
         font-size: 15px;
     }
 
     &.tip {
+       @apply shadow-stack-blue-sm bg-white text-blue-900 border-blue-600;
         .hint-title {
-            @apply bg-pink-200
+            @apply bg-blue-600 text-white  ring-1 ring-blue-600;
+        }
+    }
+
+    &.info {
+       @apply shadow-stack-black border-gray-800;
+        .hint-title {
+            @apply text-white ring-1 ring-gray-800;
         }
     }
 
     &.warning {
-        @apply shadow-purple-500 bg-gray-50;
+        @apply shadow-orange-500 bg-orange-50 text-orange-900 border-orange-300;
 
         .hint-title {
-            @apply bg-purple-200 text-white;
+            @apply bg-orange-600 text-white ring-1 ring-orange-600;
         }
 
         code:not(.torchlight) {
-            @apply text-purple-500 !important;
+            @apply text-blue-600 !important;
+        }
+    }
+
+    &.danger {
+        @apply shadow-red-500 bg-red-50 text-red-900 border-red-300;
+
+        .hint-title {
+            @apply bg-red-600 text-white ring-1 ring-red-600;
+        }
+
+        code:not(.torchlight) {
+            @apply text-blue-600 !important;
         }
     }
 
@@ -119,18 +139,17 @@
 
 figure,
 .screenshot {
-    @apply bg-mint border p-3 md:p-6 my-16 shadow-stack-sm relative;
+    @apply bg-blue-100 border border-blue-300 p-3 md:p-6 my-16 shadow-stack-sm rounded-md relative;
     @apply pb-6 md:pb-12;
 
     img {
-        @apply border shadow-lg mx-auto;
+        @apply shadow-lg rounded-md mx-auto;
     }
-
 }
 
 .caption,
 figure figcaption {
-    @apply bg-black px-6 py-1 text-mint text-sm inline-block antialiased absolute -right-2 -bottom-4 md:-right-4 md:bottom-2;
+    @apply bg-gray-900 rounded-sm px-6 py-1 text-blue-200 text-sm inline-block antialiased absolute -right-2 -bottom-4 md:-right-4 md:bottom-2;
 
     code {
         font-size: 12px !important;
