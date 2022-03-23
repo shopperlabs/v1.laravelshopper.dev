@@ -10,6 +10,7 @@ preferences:
         - slug
         - template
       per_page: 25
+      after_save: continue_editing
     tags:
       columns:
         - title
