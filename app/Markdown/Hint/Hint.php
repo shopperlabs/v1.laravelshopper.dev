@@ -49,6 +49,10 @@ class Hint extends AbstractBlock
             return 'Warning!';
         }
 
+        if ($this->type === 'info') {
+            return 'Info!';
+        }
+
         if ($this->type === 'best-practice') {
             return 'Best Practice';
         }
