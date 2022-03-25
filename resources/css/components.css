@@ -30,6 +30,10 @@
             @apply bg-orange-600 text-white ring-1 ring-orange-600;
         }
 
+        a {
+            @apply text-orange-900 hover:text-orange-700 font-medium;
+        }
+
         code:not(.torchlight) {
             @apply text-blue-600 !important;
         }

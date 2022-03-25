@@ -2,49 +2,58 @@
 id: d926e826-7ef3-418a-b4e2-31aaa2c07560
 blueprint: page
 title: Dashboard
-intro: 'The dashboard is a user-customizable screen containing widgets. Lots of widgets, few widgets, custom widgets, or prebuilt widgets. All kinds of widgets.'
+intro: 'The dashboard is a user-customizable screen. One of Shopper''s main goals is to enable stores to easily customize the modules.'
 template: page
 ---
 ## Overview
 
-When you log into the control panel, you will be taken to the dashboard &mdash; a customizable screen containing widgets. Widgets!
+When you log into the control panel, you will be taken to the dashboard — a customizable screen dispatch with a Livewire component!
+
+Laravel Shopper is a free open-source e-commerce application based on the [TALL Stack](https://tallstack.dev) and aims to build an e-commerce administration using only [Livewire](https://laravel-livewire.com) components.
+
+The navigation at the left contains the available panels for everyday use:
 
 <div class="screenshot">
-    <img src="/img/dashboard.png" alt="Statamic Global Set Example">
-    <div class="caption">The dashboard and the Getting Started widget</div>
+    <img src="/img/dashboard.png" alt="Shopper Global Set Example">
+    <div class="caption">The dashboard and the Getting Started panel</div>
 </div>
 
-## Widgets
+Clicking on each icon will open the panel or shows a list of available panels.
 
-A widget can contain just about anything. _ANYTHING_ From a list of recent entries to an embedded iframe playing [Poolside.fm](https://poolside.fm). However, it probably makes sense to make and use widgets that have _something_ to do with your site. Like seeing draft or scheduled entries, recent form submissions, and if there are any software updates.
+## Components
 
-Statamic comes bundled with a [handful of widgets](/widgets), and you may also [create your own](/extending/widgets) or use ones created by others.
+The component that displays the dashboard is quite simple, so you can easily replace it to put your own.
 
-## Configuration
+The component used is `Shopper\Framework\Http\Livewire\Dashboard` and can also be found in the components file `config/shopper/components.php`.
 
-Widgets can be added to the dashboard by modifying the `widgets` array in `config/statamic/cp.php`.
+```php
+namespace Shopper\Framework\Http\Livewire;
 
-``` php
-'widgets' => [
-    'getting_started',
-    [
-        'type' => 'collection',
-        'collection' => 'blog',
-        'width' => 50
-    ],
-    [
-        'type' => 'collection',
-        'collection' => 'pages',
-        'width' => 50
-    ]
-],
+use Livewire\Component;
+
+class Dashboard extends Component
+{
+    public function render()
+    {
+        return view('shopper::livewire.dashboard');
+    }
+}
 ```
 
-Each item in the array should specify the widget as `type` along with any widget-specific settings. You can find what values are available on the respective widget's documentation page.
+## Layout
 
-You may use the same widget multiple times, configured in different ways.
+Shopper comes with a [Tailwind CSS](https://tailwindcss.com) based design and you can [extend](/extending/control-panel) the default layout for your components.
 
-Each widget may have a `width` defined as a percentage.
-`25`, `33`, `50`, `66`, `75`, and `100` (the default).
+``` blade
+@extends('shopper::layouts.default')
+@section('title', __('My page title'))
 
-For widgets not requiring any configuration you can provide the string instead of an array, like the `getting_started` widget in the above example.
+@section('content')
+
+    {{-- Your content here --}}
+
+@endsection
+
+```
+
+All pages that will be on the administration must have this content and extend the default layout of Shopper

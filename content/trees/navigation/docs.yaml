@@ -46,6 +46,9 @@ tree:
       -
         id: 9112a38b-0d29-400c-a647-d93374909263
         entry: ca2af36a-e3c7-4b7a-85ec-633da5a057c8
+      -
+        id: 12ef85a6-f472-48fc-a02b-7063ac0df248
+        entry: 0a28f6de-fb0f-4a26-b6be-e057856dc036
   -
     id: 1a3486df-4c42-447e-bd1e-0f4d048cf63e
     title: 'Control Panel'

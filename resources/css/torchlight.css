@@ -43,12 +43,20 @@ pre code.torchlight .summary-caret {
 }
 
 pre .language-badge {
-  @apply text-white tracking-widest inline-block absolute right-6 opacity-50 top-0 p-2 uppercase select-none;
+  @apply text-white tracking-widest inline-block absolute right-0 opacity-50 top-0 p-2 uppercase select-none transform translate-x-0 transition duration-150;
   font-size: 10px;
 }
 
+pre:hover .language-badge {
+  @apply -translate-x-6
+}
+
 pre button {
-  @apply text-white tracking-widest inline-block absolute right-0 opacity-50 top-0 p-2 uppercase;
+  @apply text-white tracking-widest inline-block absolute right-0 opacity-0 top-0 p-2 uppercase transition duration-150;
+}
+
+pre:hover button {
+  @apply opacity-50;
 }
 
 .torchlight summary:focus {
