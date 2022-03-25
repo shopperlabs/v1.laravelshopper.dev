@@ -1,6 +1,7 @@
 .DS_Store
 /node_modules
 /public/hot
+/public/mix-manifest.json
 /public/storage
 /public/css
 /public/vendor/statamic
