@@ -82,9 +82,9 @@ Once the `app/Models/Brand.php` model is created in our app folder, we will make
 ```php
 namespace App\Models;
 
-use Shopper\Framework\Models\Shop\Product\Brand as ShopperBrand;
+use Shopper\Framework\Models\Shop\Product;
 
-class Brand extends ShopperBrand
+class Brand extends Product\Brand
 {
 }
 ```
@@ -156,8 +156,8 @@ You can modify them in the component configuration file to use your own.
 Click on the "Create" button on the brands page, and a creation form appears.
 
 <div class="screenshot">
-  <img src="/img/create-brand.png" alt="Create brand form">
-  <div class="caption">Create brand form</div>
+  <img src="/img/create-brand.png" alt="Create brand">
+  <div class="caption">Create brand</div>
 </div>
 
 Save your changes in order to be taken back to the brand's list. Required fields are marked with an **asterisk (*)**
@@ -166,7 +166,7 @@ The SEO section allows you to define how your brand information should be displa
 
 <div class="screenshot">
   <img src="/img/brand-seo.png" alt="brand seo form">
-  <div class="caption">Brand SEO form</div>
+  <div class="caption">Brand SEO</div>
 </div>
 
 By fill the data you will have a direct preview of the content.

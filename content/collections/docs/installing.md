@@ -7,7 +7,9 @@ template: page
 ---
 ## Supported Versions of Laravel
 
-**Laravel 8, and Laravel 9 are all currently supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
+**Laravel 8 only is currently supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
+
+> Laravel 9 will be support at the next release. See the [release notes](https://github.com/shopperlabs/framework/releases) for more information.
 
 ## Install Shopper
 

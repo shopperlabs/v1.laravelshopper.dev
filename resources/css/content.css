@@ -218,6 +218,14 @@ article, .markdown {
         padding: .1em .2em;
         bottom: .05rem;
     }
+
+    /* blockquote */
+  blockquote {
+    @apply my-6 py-3 px-4 bg-sky-50 font-medium font-sans text-sky-800 italic border-l-4 border-sky-500;
+    p {
+      @apply mb-0 text-lg;
+    }
+  }
 }
 
 header.markdown p {
