@@ -54,7 +54,7 @@ The model used is `Shopper\Framework\Models\Shop\Product\Category`.
 | `parent_id` | bigint  | no |  |
 
 :::tip
-Models are customizable, and we recommend changing the **Category** model when you configure your site.
+Models are customizable, and we recommend changing the **Category** model when you configure your store.
 
 To change the model you need to look at the configuration file `config/shopper/system.php` at the key `models`.
 
@@ -94,7 +94,7 @@ php artisan make:model Category
 ```
 Once the `app/Models/Category.php` model is created in our app folder, we will make it extend from the `Shopper\Framework\Models\Shop\Product\Category` model available in Shopper.
 
-2. Extend our Brand model from the Brand Shopper Model
+2. Extend our Category model from the Category Shopper Model
 
 ```php
 namespace App\Models;
@@ -138,7 +138,7 @@ return [
 
 ### Components
 
-Livewire components for managing brands are available in the component configuration file `config/shopper/components.php`.
+Livewire components for managing categories are available in the component configuration file `config/shopper/components.php`.
 
 ```php
 use Shopper\Framework\Http\Livewire;
@@ -165,7 +165,7 @@ return [
 
 Categories are determinant of how people will navigate on your site and search for your products. You should focus on your category tree and how categories are organized even before you start creating product sheets.
 
-The categories are accessible via the Categories Menu on the left sidebar. The display page is rendered by the Livewire component `Shopper\Framework\Http\Livewire\Categories\Browse` and for the display of the brands table is the component `Shopper\Framework\Http\Livewire\Tables\CategoriesTable`.
+The categories are accessible via the **Categories** Menu on the left sidebar. The display page is rendered by the Livewire component `Shopper\Framework\Http\Livewire\Categories\Browse` and for the display of the categories table is the component `Shopper\Framework\Http\Livewire\Tables\CategoriesTable`.
 
 You can modify them in the component configuration file to use your own. 
 
@@ -178,9 +178,9 @@ Click on the "Create" button on the categories page, and a creation form appears
   <div class="caption">Create category</div>
 </div>
 
-Save your changes in order to be taken back to the brand's list. Required fields are marked with an **asterisk (*)**
+Save your changes in order to be taken back to the categories list. Required fields are marked with an **asterisk (*)**
 
-The SEO section allows you to define how your brand information should be displayed in search engines. To modify the content you click on the button "Edit SEO preview". It uses the same blade component as the brands.
+The SEO section allows you to define how your category information should be displayed in search engines. To modify the content you click on the button "Edit SEO preview". It uses the same blade component as the brands.
 
 <div class="screenshot">
   <img src="/img/seo-preview.gif" alt="Seo form">
