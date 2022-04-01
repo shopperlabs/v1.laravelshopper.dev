@@ -1,13 +1,26 @@
 <div id="site-footer" class="relative z-20" x-show="! showNav">
-    <div class="text-center pt-5 relative space-y-3">
-        <p class="inline-flex items-center text-sm leading-5 text-gray-500">
-            Proudly made in {{ svg src="flag_cameroon" class="h-3 mx-1.5" }} by Arthur Monney
+    <div class="text-center text-gray-500 pt-5 relative space-y-5">
+        <div>
+            <p class="inline-flex items-center text-sm leading-5 mb-3">
+                Proudly made in {{ svg src="flag_cameroon" class="h-3 mx-1.5" }} by Arthur Monney
+            </p>
+
+            {{ partial:social }}
+        </div>
+
+        <p>
+            © {{ date iso_format="YYYY" }} Shopper Labs. All rights reserved.
         </p>
 
-        {{ partial:social }}
+        <p>
+            <span>Syntax highlighting by</span>
+            <a href="https://torchlight.dev" target="_blank" class="font-medium text-blue-500 hover:text-blue-700">
+                Torchlight
+            </a>.
+        </p>
 
         <div class="inline-flex items-center px-3 py-2.5 text-sm text-white font-medium leading-5 bg-[#0080ff] rounded-md">
-            hosted on {{ svg src="icons/digitalocean" class="h-6 w-auto ml-3" }}
+            hosted on {{ svg src="icons/digitalocean" class="h-5 w-auto ml-3" }}
         </div>
     </div>
 </div>
