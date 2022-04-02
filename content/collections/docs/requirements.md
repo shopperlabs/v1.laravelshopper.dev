@@ -9,7 +9,10 @@ template: page
 
 To run Laravel Shopper you'll need a server meeting the following requirements. These are all pretty standard in most modern hosting platforms.
 
-- PHP `>= 8.0+`
+#### PHP Version
+- PHP 8.0+
+
+#### PHP Extension
 - BCMath PHP Extension
 - Ctype PHP Extension
 - Exif PHP Extension
@@ -20,6 +23,11 @@ To run Laravel Shopper you'll need a server meeting the following requirements. 
 - Tokenizer PHP Extension
 - XML PHP Extension
 - GD Library or ImageMagick
+
+#### Database Engine
+- MySQL 8.0+
+- MariaDB 10.2+
+- PostgreSQL 9.4+
 
 ## Recommended Hosts
 

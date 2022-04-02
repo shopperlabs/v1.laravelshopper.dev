@@ -18,12 +18,12 @@ tree:
     title: 'Getting Started'
     children:
       -
+        id: 7ce1e48e-bc70-4eef-947a-76dcced80402
+        entry: f72f6d25-6def-40fa-bf3b-a42b3f6cffe5
+      -
         id: 9a11e50c-7ef6-48b6-91c5-46b177e8a04d
         entry: 39a2b558-476a-4130-a179-be2265abb408
         title: Installation
-      -
-        id: 7ce1e48e-bc70-4eef-947a-76dcced80402
-        entry: f72f6d25-6def-40fa-bf3b-a42b3f6cffe5
       -
         id: f51a9850-8ded-4fc2-aef6-a5f1c06bf03d
         entry: 70b2c5cb-f2ba-4fd6-9910-345635714f47
