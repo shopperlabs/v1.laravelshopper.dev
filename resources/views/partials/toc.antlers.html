@@ -1,8 +1,12 @@
 {{ if ! hide_toc && content | toc }}
-    <div id="table-of-contents" class="relative z-20 px-8 overflow-y-auto hidden xl:block w-[19.5rem]">
-        <h5 class="text-gray-900 font-semibold mb-4 text-sm leading-6">On this page</h5>
-        <div class="text-gray-700 text-sm leading-6">
-            {{ content | toc }}
-        </div>
+    <div class="col-span-3 hidden xl:block">
+        <aside class="sticky top-24 overflow-hidden" style="height: calc(100vh - 96px);">
+            <div id="table-of-contents" class="relative h-full">
+                <h5 class="text-gray-900 font-semibold mb-4 text-sm leading-6">On this page</h5>
+                <div class="text-gray-700 text-sm leading-6">
+                    {{ content | toc }}
+                </div>
+            </div>
+        </aside>
     </div>
 {{ /if }}
