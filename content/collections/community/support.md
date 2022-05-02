@@ -6,7 +6,7 @@ intro: 'Get support from the Shopper Community.'
 ---
 ## Email
 
-If you need help with something related to your project please email us at support@shopperlabs.io and we will do everything we can to take care of you.
+If you need help with something related to your project please email us at [arthur@shopperlabs.io](arthur@shopperlabs.io) and we will do everything we can to take care of you.
 
 
 ## Discord
@@ -19,6 +19,6 @@ If you have questions you can contact our support directly through the Support c
 
 ## Bug Report
 
-If you find a bug or discover a security vulnerability within Laravel Shopper, please send an e-mail to contact@shopperlabs.io. All security vulnerabilities will be promptly addressed.
+If you find a bug or discover a security vulnerability within Laravel Shopper, please send an e-mail to [contact@shopperlabs.io](contact@shopperlabs.io). All security vulnerabilities will be promptly addressed.
 
 [Report a bug with and issue](https://github.com/shopperlabs/framework/issues)

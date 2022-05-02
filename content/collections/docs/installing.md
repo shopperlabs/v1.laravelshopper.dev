@@ -7,9 +7,7 @@ template: page
 ---
 ## Supported Versions of Laravel
 
-**Laravel 8 only is currently supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
-
-> Laravel 9 will be support at the next release. See the [release notes](https://github.com/shopperlabs/framework/releases) for more information.
+**Laravel 8 and Laravel 9 are supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
 
 ## Install Shopper
 
@@ -22,27 +20,6 @@ Shopper is really easy to install. After creating your new app or in an existing
     ``` shell
     composer require shopper/framework --with-dependencies
     ```
-3. Add the following settings to your Tailwindcss config `tailwind.config.js`.
-	```js
-    module.exports = {
-      ...
-      presets: [
-        ...
-        require('./vendor/wireui/wireui/tailwind.config'), // [tl! focus]
-        require('./vendor/shopper/framework/tailwind.config'), // [tl! focus]
-      ],
-      purge: [
-        ...
-        './vendor/shopper/framework/resources/**/*.blade.php', // [tl! focus]
-        './vendor/wire-elements/modal/resources/views/*.blade.php', // [tl! focus]
-        './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php', // [tl! focus]
-        './vendor/wireui/wireui/resources/**/*.blade.php', // [tl! focus]
-        './vendor/wireui/wireui/ts/**/*.ts', // [tl! focus]
-        './vendor/wireui/wireui/src/View/**/*.php' // [tl! focus]
-      ],
-      ...
-    }
-	```
 
 ## Write Env Variables
 
@@ -94,7 +71,11 @@ Run the following command to create a user with supreme \(at the moment of creat
 php artisan shopper:admin
 ```
 
-And you will be prompted for the user email, firstname, lastname and password.
+And you will be prompted for the user email, firstname, lastname and password. You can now login to start create products
+
+<div class="screenshot">
+    <img src="/img/product-screenshot.png" alt="Product creation screenshot">
+</div>
 
     
 ## New Shopper Directory

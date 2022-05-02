@@ -12,8 +12,10 @@ With the installation of Shopper you will find new configurations files located 
 ``` files theme:github-light
 config/shopper/
     auth.php
+    components.php
     mails.php
     routes.php
+    settings.php
     system.php
 ```
 
@@ -23,6 +25,27 @@ And the `system.php` is the main file, you can find various options to change th
 ## System
 
 All the basic configurations for using shopper can be found in this file. The management of the locale, the models to use and additional resources (scripts and styles) to the administration.
+
+
+### Brand logo
+
+By default, the Shopper logo will be used as the brand logo in the administration panel.
+
+To update it you just have to fill in the logo link in your public folder
+
+```php
+/*
+  |--------------------------------------------------------------------------
+  | Brand Name
+  |--------------------------------------------------------------------------
+  |
+  | This will be displayed on the login page and in the sidebar's header.
+  |
+  */
+
+  'brand' => '/img/logo.svg',
+```
+
 
 ### Controllers
 
@@ -103,12 +126,99 @@ Shopper gives you the ability to add middleware to all of your routes. These mid
 'custom_file' => null,
 ```
 
-By default none of your routes in the `web.php` file will be accessible and loaded in the shopper administration. So that your routes added in the sidebar can have the middleware applied to the dashboard, you must fill in an additional routing file and this will be automatically loaded by Shopper's internal RouteServiceProvider
+By default none of your routes in the `web.php` file will be accessible and loaded in the shopper administration. So that your routes added in the sidebar can have the middleware applied to the dashboard, you must fill in an additional routing file and this will be automatically loaded by Shopper's internal RouteServiceProvider.
+
+
+## Components
+
+The main features of Laravel Shopper is to handle Livewire components to add new functionnalities to your admin panel. 
+
+For this purpose you have a component file that lists all Livewire components used within Laravel Shopper. You can for each feature modify the associated or extends component to add functionality or even change the view to fit your own logic.
+
+Here is an example of some components
+
+```php
+use Shopper\Framework\Http\Livewire;
+
+return [
+	/*
+    |--------------------------------------------------------------------------
+    | Livewire Components
+    |--------------------------------------------------------------------------
+    |
+    | Below you reference all the Livewire components that should be loaded
+    | for your app. By default all components from Shopper Kit are loaded in.
+    |
+    */
+  	'livewire' => [
+		'account.devices' => Livewire\Account\Devices::class,
+		'account.dropdown' => Livewire\Account\Dropdown::class,
+		'account.password' => Livewire\Account\Password::class,
+		...
+	],
+
+];
+
+```
+
+
+## Settings
+
+Settings are a very important part of an e-commerce site administration. Shopper has understood this very well and has set up a settings file, to allow you to add or modify the default settings of Shopper.
+
+In this file you can add parameters or delete those you don't need to simplify your store or to make it larger
+
+```php
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Setting Menu
+    |--------------------------------------------------------------------------
+    |
+    | The menu for the generation of the page settings and layout.
+    | BladeUIKit Heroicon is the icon used. See https://blade-ui-kit.com/blade-icons?set=1
+    |
+    */
+
+    'items' => [
+        [
+            'name' => 'General',
+            'description' => 'View and update your store information.',
+            'icon' => 'heroicon-o-cog',
+            'route' => 'shopper.settings.shop',
+            'permission' => null,
+        ],
+        [
+            'name' => 'Staff & permissions',
+            'description' => 'View and manage what staff can see or do in your store.',
+            'icon' => 'heroicon-o-users',
+            'route' => 'shopper.settings.users',
+            'permission' => null,
+        ],
+        [
+            'name' => 'Email',
+            'description' => 'Manage email notifications that will be sent to your customers.',
+            'icon' => 'heroicon-o-mail',
+            'route' => 'shopper.settings.mails',
+            'permission' => null,
+        ],
+      
+		...
+    ],
+];
+```
+
 
 ## Mapbox
 
 Shopper uses Mapbox to enter the geographic coordinates (latitude and longitude) of your store so that you can easily tell your customers your location.
-The mapbox component to use is that of [Blade UI Kit](https://blade-ui-kit.com/docs/0.x/mapbox) and to activate the map you can just follow the documentation on this part.
+
+To activate mapbox you need to go to the [API](https://docs.mapbox.com/mapbox-gl-js/api/) documentation and create an API token. Once this is done you need to add the key `MAPBOX_PUBLIC_TOKEN` with the token value to your `.env` file
+
+```shell
+MAPBOX_PUBLIC_TOKEN=your_token_here
+```
 
 ## Update Configurations
 

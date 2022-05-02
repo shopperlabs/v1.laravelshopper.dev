@@ -9,8 +9,8 @@ intro: 'We’ve reserved this space to thank our top Open Source sponsors! With 
 Recurring pledges come with exclusive perks, e.g. having your name listed in the Shopper GitHub repository, or have your company logo placed on this website.
 
 
-- [Become a backer or sponsor via Patreon](https://patreon.com/shopperlabs) by directly supporting the organization
-- [Become a backer or sponsor via Github](https://github.com/sponsors/sense) directly support Jean-Vincent's full-time work on Shopper on GitHub
+- [Sponsor via Patreon](https://patreon.com/shopperlabs) by directly supporting the organization
+- [Sponsor via Open Collective](https://opencollective.com/shopperlabs) by directly supporting the organization on Open Collective
 
 
 ## Current Sponsors
