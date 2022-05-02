@@ -31,7 +31,7 @@ Shopper is really easy to install. After creating your new app or in an existing
         require('./vendor/wireui/wireui/tailwind.config'), // [tl! focus]
         require('./vendor/shopper/framework/tailwind.config'), // [tl! focus]
       ],
-      purge: [
+      content: [
         ...
         './vendor/shopper/framework/resources/**/*.blade.php', // [tl! focus]
         './vendor/wire-elements/modal/resources/views/*.blade.php', // [tl! focus]
@@ -39,6 +39,10 @@ Shopper is really easy to install. After creating your new app or in an existing
         './vendor/wireui/wireui/resources/**/*.blade.php', // [tl! focus]
         './vendor/wireui/wireui/ts/**/*.ts', // [tl! focus]
         './vendor/wireui/wireui/src/View/**/*.php' // [tl! focus]
+      ],
+      plugins: [
+        ...
+        require("@tailwindcss/line-clamp"),
       ],
       ...
     }
