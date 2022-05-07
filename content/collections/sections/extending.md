@@ -41,31 +41,6 @@ The rest of the configuration will be done using the configuration files in the 
 - `/system.php` for the controllers that should be loaded for each route.
 
 
-:::tip
-If you are going to use Tailwind, we recommend that you add this configuration. Add the following settings to your Tailwindcss config `tailwind.config.js`.
-```js
-module.exports = {
-  ...
-  presets: [
-    ...
-    require('./vendor/wireui/wireui/tailwind.config'), // [tl! focus]
-    require('./vendor/shopper/framework/tailwind.config'), // [tl! focus]
-  ],
-  purge: [
-    ...
-    './vendor/shopper/framework/resources/**/*.blade.php', // [tl! focus]
-    './vendor/wire-elements/modal/resources/views/*.blade.php', // [tl! focus]
-    './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php', // [tl! focus]
-    './vendor/wireui/wireui/resources/**/*.blade.php', // [tl! focus]
-    './vendor/wireui/wireui/ts/**/*.ts', // [tl! focus]
-    './vendor/wireui/wireui/src/View/**/*.php' // [tl! focus]
-  ],
-  ...
-}
-```
-:::
-
-
 We will deal with all this in more detail later.
 
 ## How **not** to extend Shopper {#how-not-to-extend-shopper}
