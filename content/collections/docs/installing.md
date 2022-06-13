@@ -98,5 +98,5 @@ After that, run `composer dump-autoload` to finish your installation!
 If your are using Laravel Valet you can easily access with your project name with `.test` at the end when you navigate on you project.
 
 ```shell
-http://laravelshopper.test/shopper
+http://laravelshopper.test/shopper/login
 ```
