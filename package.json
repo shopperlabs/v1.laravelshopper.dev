@@ -21,14 +21,18 @@
     "postcss": "^8.4.5",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.2",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.5.0",
     "resolve-url-loader": "^3.0",
-    "tailwindcss": "^3.0.7",
+    "tailwindcss": "^3.0.24",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
     "@docsearch/js": "3",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
     "alpinejs": "^3.2.4",
     "clipboard": "^2.0.10",
     "dayjs": "^1.10.7"

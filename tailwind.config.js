@@ -3,13 +3,11 @@ const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  purge: {
-    content: [
-      './resources/**/*.antlers.html',
-      './resources/**/*.blade.php',
-      './content/**/*.md'
-    ]
-  },
+  content: [
+    './resources/**/*.antlers.html',
+    './resources/**/*.blade.php',
+    './content/**/*.md'
+  ],
   important: true,
   theme: {
     extend: {
