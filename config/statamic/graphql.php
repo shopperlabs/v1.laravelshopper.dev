@@ -17,7 +17,11 @@ return [
     'enabled' => env('STATAMIC_GRAPHQL_ENABLED', false),
 
     'resources' => [
-        'collections' => false,
+        'collections' => [
+            'blog' => [
+                'allowed_filters' => ['title', 'slug']
+            ]
+        ] ,
         'navs' => false,
         'taxonomies' => false,
         'assets' => false,

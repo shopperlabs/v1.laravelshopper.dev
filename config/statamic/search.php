@@ -28,6 +28,7 @@ return [
         'default' => [
             'driver' => 'local',
             'searchables' => ['collection:*', 'taxonomy:*'],
+            'filter' => fn () => true,
             'fields' => ['title'],
         ],
 
