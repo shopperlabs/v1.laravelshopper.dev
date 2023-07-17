@@ -17,8 +17,8 @@ If you want to work on this project on your local machine, you may follow the in
 5. Run the following commands:
   ```
   composer install
-  npm install
-  npm run dev
+  yarn install
+  yarn dev
   cp .env.example .env
   php artisan key:generate
   ```
