@@ -3,35 +3,20 @@
 namespace App\Providers;
 
 use App\Markdown\Hint\HintExtension;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Statamic\Facades\Markdown;
-use Torchlight\Commonmark\TorchlightExtension;
+use League\CommonMark\Extension\DescriptionList\Node\DescriptionList;
 use League\CommonMark\Extension\Attributes\AttributesExtension;
+use Statamic\Facades\Markdown;
+use Torchlight\Commonmark\V2\TorchlightExtension;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
-        // View::composer('partials.side-nav', SideNavComposer::class);
+        Markdown::addExtensions(fn () => [new HintExtension, new AttributesExtension]);
 
-        Markdown::addExtensions(function () {
-            return [new HintExtension, new TorchlightExtension, new AttributesExtension];
-        });
-    }
-
-    /**
-    * Register any application services.
-    *
-    * @return void
-    */
-    public function register()
-    {
-        //
+        if (config('torchlight.token')) {
+            Markdown::addExtensions(fn () => [new TorchlightExtension]);
+        }
     }
 }

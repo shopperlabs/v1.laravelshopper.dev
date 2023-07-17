@@ -2,19 +2,15 @@
 
 namespace App\Markdown\Hint;
 
-use League\CommonMark\Block\Element\AbstractBlock;
-use League\CommonMark\Cursor;
+use League\CommonMark\Node\Block\AbstractBlock;
+use League\CommonMark\Node\StringContainerInterface;
 
-class Hint extends AbstractBlock
+class Hint extends AbstractBlock implements StringContainerInterface
 {
     protected $type;
     protected $title;
-
-    public function __construct($type, $title)
-    {
-        $this->type = $type;
-        $this->title = $title;
-    }
+    private ?string $header = 'Hot Tip!';
+    protected string $literal;
 
     public function canContain(AbstractBlock $block): bool
     {
@@ -37,6 +33,8 @@ class Hint extends AbstractBlock
 
     public function getTitle(): ?string
     {
+        $words = $this->getHeaderWords();
+
         if ($this->title) {
             return $this->title;
         }
@@ -63,5 +61,25 @@ class Hint extends AbstractBlock
     public function getType(): ?string
     {
         return $this->type;
+    }
+
+    public function getHeaderWords(): array
+    {
+        return \preg_split('/\s+/', $this->header ?? '') ?: [];
+    }
+
+    public function setHeader($header): void
+    {
+        $this->header = $header;
+    }
+
+    public function setLiteral(string $literal): void
+    {
+        $this->literal = $literal;
+    }
+
+    public function getLiteral(): string
+    {
+        return $this->literal;
     }
 }
