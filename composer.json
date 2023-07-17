@@ -29,7 +29,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "allow-plugins": {
-      "pixelfear/composer-dist-plugin": false
+      "pixelfear/composer-dist-plugin": true
     }
   },
   "extra": {
