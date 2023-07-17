@@ -2,20 +2,18 @@
 
 namespace App\Markdown\Hint;
 
-use League\CommonMark\Block\Element\AbstractBlock;
-use League\CommonMark\Block\Renderer\BlockRendererInterface;
-use League\CommonMark\ElementRendererInterface;
-use League\CommonMark\HtmlElement;
+use League\CommonMark\Node\Node;
+use League\CommonMark\Renderer\ChildNodeRendererInterface;
+use League\CommonMark\Renderer\NodeRendererInterface;
+use League\CommonMark\Util\HtmlElement;
 
-final class HintRenderer implements BlockRendererInterface
+final class HintRenderer implements NodeRendererInterface
 {
-    public function render(AbstractBlock $node, ElementRendererInterface $childRenderer, bool $inTightList = false)
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer)
     {
-        if (!($node instanceof Hint)) {
-            throw new \InvalidArgumentException('Incompatible block type: ' . \get_class($node));
-        }
+        Hint::assertInstanceOf($node);
 
-        $attrs = $node->getData('attributes');
+        $attrs = $node->data->get('attributes');
         isset($attrs['class']) ? $attrs['class'] .= ' hint' : $attrs['class'] = 'hint';
 
         if ($type = $node->getType()) {
@@ -43,7 +41,7 @@ final class HintRenderer implements BlockRendererInterface
         $content = new HtmlElement(
             'div',
             ['class' => 'hint-content'],
-            $childRenderer->renderBlocks($node->children())
+            $childRenderer->renderNodes($node->children())
         );
 
         return new HtmlElement(
@@ -56,32 +54,30 @@ final class HintRenderer implements BlockRendererInterface
         );
     }
 
-    private function renderCallout(Hint $node, ElementRendererInterface $childRenderer, array $attrs)
+    private function renderCallout(Hint $node, ChildNodeRendererInterface $childRenderer, array $attrs)
     {
         $content = new HtmlElement(
             'div',
             ['class' => 'hint-content'],
-            $childRenderer->renderBlocks($node->children())
+            $childRenderer->renderNodes($node->children())
         );
 
         return new HtmlElement(
             'div',
             $attrs,
             '<a href="'.$node->getTitle().'">' .
-            $childRenderer->renderBlocks($node->children()).
-            '</a>'
+            $childRenderer->renderNodes($node->children()).
+            '</a>'.
+            $content
         );
     }
 
-    private function renderWatch(Hint $node, ElementRendererInterface $childRenderer, array $attrs)
+    private function renderWatch(Hint $node, ChildNodeRendererInterface $childRenderer, array $attrs)
     {
-        // Grab the first paragraph. There should only be one anyway.
-        $content = $node->children()[0];
-
         $caption = new HtmlElement(
             'p',
             ['class' => 'caption'],
-            $childRenderer->renderInlines($content->children())
+            $childRenderer->renderNodes($node->children())
         );
 
         return new HtmlElement(
