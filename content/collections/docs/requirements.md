@@ -10,7 +10,7 @@ template: page
 To run Laravel Shopper you'll need a server meeting the following requirements. These are all pretty standard in most modern hosting platforms.
 
 #### PHP Version
-- PHP 8.0+
+- PHP 8.1+
 
 #### PHP Extension
 - BCMath PHP Extension

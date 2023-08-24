@@ -5,7 +5,7 @@ title: 'Roles & Permissions'
 intro: 'Manage access and permissions of your users and members in your store.'
 template: page
 ---
-To connect to the dashboard you need to have the role `administrator` this role can be found in the configuration file `config/shopper/system.php`.
+To connect to the dashboard you need to have the role `administrator` this role can be found in the configuration file `config/shopper/core.php`.
 
 ```php
 /*
@@ -73,7 +73,7 @@ To view the roles and permissions management page, you must go to the `Settings 
 
 ### Fields
 
-The model used for the **Role** is `Shopper\Framework\Models\User\Role` this model extend from the Spatie Role model.
+The model used for the **Role** is `Shopper\Core\Models\Role` this model extend from the Spatie Role model.
 
 | Name        | Type      | Required |  Notes   |
 |-------------|-----------|----------|------------|
@@ -84,7 +84,7 @@ The model used for the **Role** is `Shopper\Framework\Models\User\Role` this mod
 | `description`| text | no | Nullable, the role description |
 | `can_be_removed` | boolean | no | Default `true`, defines if a role can be deleted. Initially no role that comes with Shopper can be deleted from the interface. But the roles that will be added afterwards can be deleted.|
 
-And the **Permission** model is `Shopper\Framework\Models\User\Permission`
+And the **Permission** model is `Shopper\Core\Models\Permission`
 
 | Name        | Type      | Required |  Notes   |
 |-------------|-----------|----------|------------|
@@ -99,7 +99,7 @@ And the **Permission** model is `Shopper\Framework\Models\User\Permission`
 The **Permission** model has some groups as shown here
 
 ```php
-namespace Shopper\Framework\Models\User;
+namespace Shopper\Core\Models;
 
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
@@ -131,7 +131,8 @@ class Permission extends SpatiePermission
 The components used to manage locations are found in the component configuration file `config/shopper/components.php`.
 
 ```php
-use Shopper\Framework\Http\Livewire;
+use Shopper\Http\Livewire;
+use Shopper\Http\Livewire\Components;
 
 return [
 	...
@@ -142,11 +143,11 @@ return [
       	'modals.create-permission' => Livewire\Modals\CreatePermission::class,
       	'modals.create-role' => Livewire\Modals\CreateRole::class,
       	
-      	'settings.management.create-admin-user' => Livewire\Settings\Management\CreateAdminUser::class,
-      	'settings.management.management' => Livewire\Settings\Management\Management::class,
-      	'settings.management.permissions' => Livewire\Settings\Management\Permissions::class,
-      	'settings.management.role' => Livewire\Settings\Management\Role::class,
-      	'settings.management.users-role' => Livewire\Settings\Management\UsersRole::class,
+      	'settings.management.create-admin-user' => Components\Settings\Management\CreateAdminUser::class,
+      	'settings.management.management' => Components\Settings\Management\Management::class,
+      	'settings.management.permissions' => Components\Settings\Management\Permissions::class,
+      	'settings.management.role' => Components\Settings\Management\Role::class,
+      	'settings.management.users-role' => Components\Settings\Management\UsersRole::class,
       	...
   	];
   
@@ -208,7 +209,7 @@ Then you fill in the information of your administrator with the role chosen for 
   <div class="caption">Add admin form</div>
 </div>
 
-The actual role registration function looks like the code below. And the whole implementation class is `Shopper\Framework\Http\Livewire\Settings\Management\CreateAdminUser` 
+The actual role registration function looks like the code below. And the whole implementation class is `Shopper\Http\Livewire\Components\Settings\Management\CreateAdminUser` 
 
 ```php
 public function store()

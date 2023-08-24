@@ -11,15 +11,17 @@ With the installation of Shopper you will find new configurations files located 
 
 ``` files theme:github-light
 config/shopper/
+    admin.php
     auth.php
     components.php
-    mails.php
+    core.php
+    media.php
+    models.php
     routes.php
     settings.php
-    system.php
 ```
 
-And the `system.php` is the main file, you can find various options to change the configuration of your Shopper installation.
+And the `admin.php` is the main file, you can find various options to change the configuration of your Shopper installation.
 
 
 ## System
@@ -61,22 +63,22 @@ In your config file you have the controllers key that define the controller's na
 
 ### Models
 
-Models used are defined in the models key, if you want to use your own models you can replace them here.
+Models used are defined in the models key, if you want to use your own models you can replace them on the `models.php` config file.
 
 ``` php
-'models' => [
-    ...
-    'brand' => \Shopper\Framework\Models\Shop\Product\Brand::class,
 
-    ...
-    'category' => \Shopper\Framework\Models\Shop\Product\Category::class,
+  ...
+  'brand' => \Shopper\Core\Models\Brand::class,
 
-    ...
-    'collection' => \Shopper\Framework\Models\Shop\Product\Collection::class,
+  ...
+  'category' => \Shopper\Core\Models\Category::class,
 
-    ...
-    'product' => \Shopper\Framework\Models\Shop\Product\Product::class,
-],
+  ...
+  'collection' => \Shopper\Core\Models\Collection::class,
+
+  ...
+  'product' => \Shopper\Core\Models\Product::class,
+
 ```
 
 ### Additional resources
@@ -102,8 +104,8 @@ The configuration of the routes allows you to specify a prefix to access your da
 ### Prefix
 
 ```php
-// config/shopper/routes.php
-'prefix' => env('SHOPPER_DASHBOARD_PREFIX', 'shopper'),
+// config/shopper/admin.php
+'prefix' => env('SHOPPER_PREFIX', 'cpanel'),
 ```
 
 The system installed on the website can be easily defined by the dashboard prefix, for example it is `wp-admin` for WordPress, and it gives an opportunity to automatically search for old vulnerable versions of software and gain control over it.
@@ -113,6 +115,7 @@ There are other reasons but we won't speak of them in this section. The point is
 ### Middleware
 
 ```php
+// config/shopper/routes.php
 'middleware' => [],
 ```
 
@@ -138,7 +141,7 @@ For this purpose you have a component file that lists all Livewire components us
 Here is an example of some components
 
 ```php
-use Shopper\Framework\Http\Livewire;
+use Shopper\Http\Livewire\Components;
 
 return [
 	/*
@@ -151,9 +154,9 @@ return [
     |
     */
   	'livewire' => [
-		'account.devices' => Livewire\Account\Devices::class,
-		'account.dropdown' => Livewire\Account\Dropdown::class,
-		'account.password' => Livewire\Account\Password::class,
+		'account.devices' => Components\Account\Devices::class,
+		'account.dropdown' => Components\Account\Dropdown::class,
+		'account.password' => Components\Account\Password::class,
 		...
 	],
 
@@ -195,15 +198,7 @@ return [
             'icon' => 'heroicon-o-users',
             'route' => 'shopper.settings.users',
             'permission' => null,
-        ],
-        [
-            'name' => 'Email',
-            'description' => 'Manage email notifications that will be sent to your customers.',
-            'icon' => 'heroicon-o-mail',
-            'route' => 'shopper.settings.mails',
-            'permission' => null,
-        ],
-      
+        ],      
 		...
     ],
 ];

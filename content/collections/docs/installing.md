@@ -7,7 +7,7 @@ template: page
 ---
 ## Supported Versions of Laravel
 
-**Laravel 8 and Laravel 9 are supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
+**Laravel 9 and Laravel 10 are supported.** It feels like this section needs more than one sentence but it really doesn't. That first one said all that needs saying.
 
 ## Install Shopper
 
@@ -31,7 +31,7 @@ Next make sure to create a new database and add your database credentials to you
     DB_DATABASE=homestead
     DB_USERNAME=homestead
     DB_PASSWORD=secret
-    ```
+  ```
     
 ## Automatic Installation
 

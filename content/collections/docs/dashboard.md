@@ -2,7 +2,7 @@
 id: d926e826-7ef3-418a-b4e2-31aaa2c07560
 blueprint: page
 title: Dashboard
-intro: 'The dashboard is a user-customizable screen. One of Shopper''s main goals is to enable stores to easily customize the modules.'
+intro: "The dashboard is a user-customizable screen. One of Shopper's main goals is to enable stores to easily customize the modules."
 template: page
 ---
 ## Overview
@@ -24,10 +24,10 @@ Clicking on each icon will open the panel or shows a list of available panels.
 
 The component that displays the dashboard is quite simple, so you can easily replace it to put your own.
 
-The component used is `Shopper\Framework\Http\Livewire\Dashboard` and can also be found in the components file `config/shopper/components.php`.
+The component used is `Shopper\Http\Livewire\Pages\Dashboard` and can also be found in the components file `config/shopper/components.php`.
 
 ```php
-namespace Shopper\Framework\Http\Livewire;
+namespace Shopper\Http\Livewire\Pages;
 
 use Livewire\Component;
 
@@ -35,7 +35,10 @@ class Dashboard extends Component
 {
     public function render()
     {
-        return view('shopper::livewire.dashboard');
+        return view('shopper::livewire.pages.dashboard')
+            ->layout('shopper::components.layouts.app', [
+                'title' => __('shopper::layout.sidebar.dashboard'),
+            ]);
     }
 }
 ```
@@ -45,15 +48,9 @@ class Dashboard extends Component
 Shopper comes with a [Tailwind CSS](https://tailwindcss.com) based design and you can [extend](/extending/control-panel) the default layout for your components.
 
 ``` blade
-@extends('shopper::layouts.default')
-@section('title', __('My page title'))
-
-@section('content')
-
+<x-shopper::container>
     {{-- Your content here --}}
-
-@endsection
-
+</x-shopper::container>
 ```
 
 All pages that will be on the administration must have this content and extend the default layout of Shopper

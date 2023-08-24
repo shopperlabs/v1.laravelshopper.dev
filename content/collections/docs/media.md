@@ -46,7 +46,7 @@ Single Upload is a reusable Livewire component created for single upload managem
   <div class="caption">Single upload component</div>
 </div>
 
-The component used is `Shopper\Framework\Http\Livewire\Forms\Uploads\Single` To add it to your page you add this component to your view.
+The component used is `Shopper\Http\Livewire\Components\Forms\Uploads\Single` To add it to your page you add this component to your view.
 
 ```blade
 <livewire:shopper-forms.uploads.single />
@@ -78,7 +78,7 @@ class MyComponent extends Component
       
 		if ($this->fileUrl) {
 			$model->addMedia($this->fileUrl)
-              ->toMediaCollection(config('shopper.system.storage.disks.uploads'));
+              ->toMediaCollection(config('shopper.core.storage.collection_name'));
         }
     }
 }
@@ -90,7 +90,7 @@ To apply this action on your model you have to preapre your model with the Larav
 
 ### Multiple upload
 
-The component used is `Shopper\Framework\Http\Livewire\Forms\Uploads\Multiple` To add it to your page you add this component to your view.
+The component used is `Shopper\Http\Livewire\Components\Forms\Uploads\Multiple` To add it to your page you add this component to your view.
 
 ```blade
 <livewire:shopper-forms.uploads.multiple />
@@ -126,7 +126,7 @@ class MyComponent extends Component
 		if (collect($this->files)->isNotEmpty()) {
 			collect($this->files)->each(
               fn ($file) => $model->addMedia($file)
-              	->toMediaCollection(config('shopper.system.storage.disks.uploads'))
+              	->toMediaCollection(config('shopper.core.storage.collection_name'))
             );
         }
     }
@@ -165,5 +165,5 @@ For more information on what's available, see [Defining conversions](https://spa
 To get an image with full url on a product, a brand or a collection 
 
 ```php
-$product->getFirstMediaUrl(config('shopper.system.storage.disks.uploads'))
+$product->getFirstMediaUrl(config('shopper.core.storage.disk_name'))
 ```

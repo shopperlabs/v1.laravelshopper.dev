@@ -28,3 +28,5 @@ preferences:
         - intro
     sections:
       after_save: continue_editing
+    extending-docs:
+      after_save: continue_editing

@@ -23,7 +23,7 @@ From the administration area of your store you can't manage more than 4 inventor
 
 ### Fields
 
-The model used is `Shopper\Framework\Models\System\Inventory`. 
+The model used is `Shopper\Core\Models\Inventory`. 
 
 | Name        | Type      | Required   |  Notes   |
 |--------------|-----------|------------|------------|
@@ -48,7 +48,8 @@ The model used is `Shopper\Framework\Models\System\Inventory`.
 The components used to manage locations are found in the component configuration file `config/shopper/components.php`.
 
 ```php
-use Shopper\Framework\Http\Livewire;
+use Shopper\Core\Http\Livewire;
+use Shopper\Core\Http\Livewire\Components;
 
 return [
 	...
@@ -57,9 +58,9 @@ return [
   		...
       	'modals.delete-inventory' => Livewire\Modals\DeleteInventory::class, // [tl! focus]
       
-      	'settings.inventories.browse' => Livewire\Settings\Inventories\Browse::class, // [tl! focus]
-      	'settings.inventories.create' => Livewire\Settings\Inventories\Create::class,// [tl! focus]
-      	'settings.inventories.edit' => Livewire\Settings\Inventories\Edit::class,// [tl! focus]
+      	'settings.inventories.browse' => Components\Settings\Inventories\Browse::class, // [tl! focus]
+      	'settings.inventories.create' => Components\Settings\Inventories\Create::class,// [tl! focus]
+      	'settings.inventories.edit' => Components\Settings\Inventories\Edit::class,// [tl! focus]
       	...
   	];
   
