@@ -15,10 +15,10 @@ Defines your shop’s address country and state, where you are based as a seller
 
 ## Global
 
-All thoses informations is stored using the **Setting** Model which is located `\Shopper\Framework\Models\System\Setting`
+All thoses informations is stored using the **Setting** Model which is located `\Shopper\Core\Models\Setting`
 
 ```php
-namespace Shopper\Framework\Models\System;
+namespace Shopper\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -55,24 +55,6 @@ class Setting extends Model
 Shopper is made of several Livewire components, to make the configuration easier and more adaptable to any kind of system.
 
 The component used to manage the configuration and customization of the store is found in the component configuration file `config/shopper/components.php`.
-
-```php
-return [
-	...
-  
-  	'livewire' => [
-  		...
-      	'forms.uploads.multiple' => Livewire\Forms\Uploads\Multiple::class,
-      	'forms.uploads.single' => Livewire\Forms\Uploads\Single::class,
-      
-      	'initialization' => Livewire\Initialization::class, // [tl! focus]
-      	...
-  	];
-  
-  	...
-];
-
-```
 
 So you can replace it and configure your store the way you want. Yes it's magic 🎩
 
@@ -111,31 +93,7 @@ Choose the default currency for the store. Only one may be selected.
   <div class="caption">Store currency</div>
 </div>
 
-For currency configurations we use the [moneyphp/money](https://github.com/moneyphp/money) package. At the moment we can't configure the currency display, the formatter does it automatically depending on the currency.
-
-```php
-namespace Shopper\Framework\Models\Traits;
-
-use Money\Currencies\ISOCurrencies;
-use Money\Currency;
-use Money\Formatter\IntlMoneyFormatter;
-use Money\Money;
-use NumberFormatter;
-
-trait HasPrice
-{
-    public function formattedPrice(int|string $price): string
-    {
-        $money = new Money($price, new Currency(shopper_currency()));
-        $currencies = new ISOCurrencies();
-
-        $numberFormatter = new NumberFormatter(app()->getLocale(), NumberFormatter::CURRENCY);
-        $moneyFormatter = new IntlMoneyFormatter($numberFormatter, $currencies);
-
-        return $moneyFormatter->format($money);
-    }
-}
-```
+For currency configurations we use the [moneyphp/money](https://github.com/moneyphp/money) package. At the moment, the formatter does it automatically depending on the currency.
 
 As you may have noticed in the code, there is also a helper that returns the currency you registered `shopper_currency()`. This will return the currency configured in your admin panel: **USD**, **XAF**, **EUR**, etc
 
@@ -230,18 +188,18 @@ To edit your shop information, you must:
 The component used to update store setting of the store is found in the component configuration file `config/shopper/components.php`, It's the `Shopper\Framework\Http\Livewire\Settings\General` component.
 
 ```php
-use Shopper\Framework\Http\Livewire;
+use Shopper\Http\Livewire\Components;
 
 return [
 	...
   
   	'livewire' => [
   		...
-      	'settings.inventories.create' => Livewire\Settings\Inventories\Create::class,
-      	'settings.inventories.edit' => Livewire\Settings\Inventories\Edit::class,
-      	'settings.general' => Livewire\Settings\General::class, // [tl! focus]
-      	'settings.legal.privacy' => Livewire\Settings\Legal\Privacy::class,
-      	'settings.legal.refund' => Livewire\Settings\Legal\Refund::class,
+      	'settings.inventories.create' => Components\Settings\Inventories\Create::class,
+      	'settings.inventories.edit' => Components\Settings\Inventories\Edit::class,
+      	'settings.general' => Components\Settings\General::class, // [tl! focus]
+      	'settings.legal.privacy' => Components\Settings\Legal\Privacy::class,
+      	'settings.legal.refund' => Components\Settings\Legal\Refund::class,
       	...
   	];
   
@@ -255,6 +213,6 @@ return [
   <div class="caption">Admin update setting</div>
 </div>
 
-In this interface you will update your store. Don't forget that the model used is the model `Shopper\Framework\Models\System\Setting`. 
+In this interface you will update your store. Don't forget that the model used is the model `Shopper\Models\Setting`. 
 
 With the Shopper configuration you can completely change the architecture of this view and the data stored in the database.

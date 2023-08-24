@@ -9,20 +9,7 @@ Contributions are accepted via Pull Requests on [Github](https://github.com/shop
 
 To encourage active collaboration, Shopper strongly encourages pull requests, not just bug reports. "Bug reports" may also be sent in the form of a pull request containing a failing test.
 
-
-## Things you could do
-
-If you want to contribute but do not know where to start, this list provides some starting points.
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
-- Write a comprehensive ReadMe
-
-### Pull Requests
+## Pull Requests
 
 - **Document any change in behaviour** - Make sure the `readme.md` and any other relevant documentation are kept up-to-date.
 
@@ -44,11 +31,6 @@ If you discover a security vulnerability within Laravel, please send an email to
 ## Coding Style
 
 Laravel follows the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding standard and the [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) autoloading standard.
-
-
-## StyleCI
-
-Don't worry if your code styling isn't perfect! [StyleCI](https://styleci.io) will automatically merge any style fixes into the Laravel repository after pull requests are merged. This allows us to focus on the content of the contribution and not the code style.
 
 
 ## Code of Conduct

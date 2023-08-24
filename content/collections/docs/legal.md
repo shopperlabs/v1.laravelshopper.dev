@@ -9,7 +9,7 @@ This section allows you to set up your pages for your privacy policy, return pol
 
 ## Fields
 
-The model used is `Shopper\Framework\Models\Shop\Legal`. 
+The model used is `Shopper\Core\Models\Legal`. 
 
 | Name        | Type      | Required   |  Notes   |
 |--------------|-----------|------------|------------|
@@ -25,17 +25,17 @@ The model used is `Shopper\Framework\Models\Shop\Legal`.
 The components used to manage Legal page are found in the component configuration file `config/shopper/components.php`. Each component corresponds to the page that is defined
 
 ```php
-use Shopper\Framework\Http\Livewire;
+use Shopper\Http\Livewire\Components;
 
 return [
 	...
   
   	'livewire' => [
   		...
-      	'settings.legal.privacy' => Livewire\Settings\Legal\Privacy::class,
-      	'settings.legal.refund' => Livewire\Settings\Legal\Refund::class,
-      	'settings.legal.shipping' => Livewire\Settings\Legal\Shipping::class,
-      	'settings.legal.terms' => Livewire\Settings\Legal\Terms::class,
+      	'settings.legal.privacy' => Components\Settings\Legal\Privacy::class,
+      	'settings.legal.refund' => Components\Settings\Legal\Refund::class,
+      	'settings.legal.shipping' => Components\Settings\Legal\Shipping::class,
+      	'settings.legal.terms' => Components\Settings\Legal\Terms::class,
       	...
   	];
   
@@ -81,7 +81,7 @@ We will add the functions for each of our pages and return the information to pr
 ```php
 namespace App\Http\Controllers;
 
-use Shopper\Framework\Models\Shop\Legal;
+use Shopper\Core\Models\Legal;
 
 class LegalController extends Controller
 {
@@ -115,7 +115,7 @@ class LegalController extends Controller
 }
 ```
 
-`Legal::enabled()` is a scope to retrieve the page only when it is available. This is a simple way to retrieve the pages but you can do it otherwise all the front-end code depends on you. To learn more about the scopes you can consult the [documentation](https://laravel.com/docs/9.x/eloquent#local-scopes).
+`Legal::enabled()` is a scope to retrieve the page only when it is available. This is a simple way to retrieve the pages but you can do it otherwise all the front-end code depends on you. To learn more about the scopes you can consult the [documentation](https://laravel.com/docs/10.x/eloquent#local-scopes).
 
 ### Routes
 

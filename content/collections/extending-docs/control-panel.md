@@ -12,19 +12,19 @@ When you need to add features to your Shopper administration, you can first set 
 
 Shopper can load extra stylesheets and Javascript files located in the `public/` directory.
 
-You may register assets to be loaded in the Control Panel using the `scripts` and `stylesheets` keys of the resources in the `config/shopper/system.php` config file. This will accept a array of links.
+You may register assets to be loaded in the Control Panel using the `scripts` and `stylesheets` keys of the resources in the `config/shopper/admin.php` config file. This will accept a array of links.
 
 You can load the links locally or using cdn. They will be automatically loaded in the control panel
 
 ``` php
 'resources' => [
 	'stylesheets' => [
-    	'/css/app.css',
+    	'/css/admin.css',
 		'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
     ],
 	'scripts' => [
     	'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js',
-		'/js/app.js',
+		'/js/admin.js',
     ],
 ],
 ```
@@ -34,50 +34,128 @@ Depending on how you will use your css and js files, the order is important
 :::
 
 
-These commands will make Shopper expect files at `public/css/app.css` and `public/js/app.js` respectively for local links.
+These commands will make Shopper expect files at `public/css/admin.css` and `public/js/admin.js` respectively for local links.
 
 
-## Adding assets using Tailwind
+## Customize Shopper theme
 
-Shopper is built using Tall Stack presets, but you are not limited to that because the base css file is already built for production.
+Shopper is built using Tallstack presets, but you are not limited to that because the base css file is already built for production.
 
-But if you want to extend your dashboard using Tailwind css you must first install Tailwind in your project. You can read the [documentation](https://tailwindcss.com/docs/guides/laravel)
+But if you want to customize your dashboard using Tailwind css you must first install Tailwind in your project. You can read the [documentation](https://tailwindcss.com/docs/guides/laravel)
 
+Shopper using Tailwind CSS, there are some Tailwind plugins you need to install first: Plugin Forms and Typography, Autoprefixer. You can install them via NPM or Yarn:
 
-Add the following settings to your Tailwind css config `tailwind.config.js`.
+```bash
+yarn add -D tailwindcss @tailwindcss/forms @tailwindcss/typography autoprefixer
+```
+
+After installing Tailwind, you need to create a `tailwind.config.js` file at the root of your project and add this content
 
 ```js
+const colors = require('tailwindcss/colors')
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  ...
+  darkMode: 'class',
   presets: [
-    ...
-    require('./vendor/wireui/wireui/tailwind.config'), // [tl! focus]
     require('./vendor/shopper/framework/tailwind.config'), // [tl! focus]
   ],
-  purge: [
-    ...
-    './vendor/shopper/framework/resources/**/*.blade.php', // [tl! focus]
-    './vendor/wire-elements/modal/resources/views/*.blade.php', // [tl! focus]
-    './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php', // [tl! focus]
-    './vendor/wireui/wireui/resources/**/*.blade.php', // [tl! focus]
-    './vendor/wireui/wireui/ts/**/*.ts', // [tl! focus]
-    './vendor/wireui/wireui/src/View/**/*.php' // [tl! focus]
+  content: [
+    './resources/**/*.blade.php',
+    './vendor/shopper/framework/**/*.blade.php', // [tl! focus:start]
+    './vendor/filament/**/*.blade.php',
+    './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
+    './vendor/wire-elements/modal/resources/views/*.blade.php',
+    './vendor/wireui/wireui/resources/**/*.blade.php',
+    './vendor/wireui/wireui/ts/**/*.ts',
+	'./vendor/wireui/wireui/src/View/**/*.php' // [tl! focus:end]
   ],
-  ...
+  theme: {
+      extends: {
+        colors: { // [tl! focus:start]
+          primary: colors.blue,
+          secondary: colors.slate,
+          indigo: colors.blue,
+        } // [tl! focus:end]
+      }
+  },
+  plugins: [
+    require('@tailwindcss/forms'), // [tl! focus]
+    require('@tailwindcss/typography'), // [tl! focus]
+  ],
 }
 ```
 
-:::tip
-When using the shopper and wireui presets you will need to install some tailwind plugins to avoid errors during your builds.
+New versions of Laravel come with vite by default so if you want to customize the Shopper admin, you need to switch to `Laravel Mix` and in your `webpack.mix.js` file, register Tailwind CSS as a PostCSS plugin:
 
-```shell
-# yarn
-yarn add -D @tailwindcss/forms @tailwindcss/line-clamp
-
-# npm
-npm install -D @tailwindcss/forms @tailwindcss/line-clamp
+```js
+const mix = require('laravel-mix')
+ 
+mix.postCss('resources/css/admin.css', 'public/css', [
+    require('tailwindcss'), // [tl! focus]
+])
 ```
+
+Just load the default Tailwind CSS directives inside your `./resources/css/admin.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Then run `yarn run dev`
+
+:::tip
+Keep in mind the `admin.css` file must be load on the `resources` key of your `shopper/admin.php` config file
 :::
+
+And add Tailwind to the `postcss.config.js` file:
+
+```js
+module.export = {
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+    },
+}
+```
+
+### Branding Logo
+
+After update (or not) the colors of your administration theme to reflect your brand. You'll probably want to change the logo to display
+
+By default, Laravel Shopper logo is used next to your application name in the administration panel.
+
+You can choose between 2 options
+
+The first, and simplest, is to modify the value of the `brand` key in your `shopper/admin.php` configuration file, by entering the link to your logo.
+
+```php
+	/*
+    |--------------------------------------------------------------------------
+    | Admin Brand Name
+    |--------------------------------------------------------------------------
+    |
+    | This will be displayed on the login page and in the sidebar's header.
+    |
+    */
+
+    'brand' => 'img/logo.svg',
+```
+
+This will load using the Laravel `asset()` helper function.
+
+The 2nd option is to create a resources/views/vendor/shopper/components/brand.blade.php file to provide a customized logo:
+
+:::info
+It can be a simple svg or an image tag.
+:::
+
+```html
+<img class="w-auto h-12" src="{{ asset('shopper/images/shopper-icon.svg') }}" alt="Laravel Shopper" />
+```
+
 
 ## Adding control panel routes
 
