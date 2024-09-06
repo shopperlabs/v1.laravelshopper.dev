@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/shopperlabs/art/blob/main/logo.svg" width="400" alt="Laravel Shopper Logo" /></p>
 
-## Laravel Shopper Documentation
+## Laravel Shopper v1 Documentation
 
 This is the source of the official [Shopper docs][docs].
 
